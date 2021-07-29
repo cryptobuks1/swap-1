@@ -1,0 +1,436 @@
+/* Swapper */
+div.swap {
+  width: 450px;
+  margin: 0px auto;
+  background: #191b1f;
+  padding: 10px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  border-radius: 24px;
+}
+
+div.swap div.card {
+  border-radius: 20px;
+  background-color: #212429;
+  border: 1px solid rgb(44, 47, 54);
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  padding: 15px;
+  margin: 5px;
+}
+
+/* Menu */
+div.swap div.menu {
+  padding: 5px 10px;
+  user-select: none;
+}
+
+div.swap div.menu div.top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+div.swap div.menu div.top div.cog {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+div.swap div.menu div.top div.cog:hover {
+  opacity: 0.8;
+}
+
+div.swap div.menu div.top div.cog:active {
+  filter: brightness(0.9);
+}
+
+div.swap div.menu div.slippage {
+}
+
+div.swap div.menu div.slippage p.info-header {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 5px;
+  color: #ffffff;
+}
+
+div.swap div.menu div.slippage div.top {
+  display: grid;
+  grid-template-columns: 15% 15% 15% 51% 4%;
+}
+
+div.swap div.menu div.slippage div.top > * {
+  margin-inline: 2px;
+}
+
+div.swap div.menu div.slippage div.top > *:not(:last-child) {
+  border: 1px solid rgb(44, 47, 54);
+}
+
+div.swap div.menu div.slippage div.top span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  margin-left: 4px;
+  color: #ffffff;
+}
+
+div.swap div.menu div.slippage div.top div.slip-btn {
+  background: #212429;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  color: #ffffff;
+  border-radius: 10px;
+  padding-block: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+div.swap div.menu div.slippage div.top div.slip-btn.active {
+  background-color: #268ffc;
+  color: #ffffff;
+}
+
+div.swap div.menu div.slippage div.top input {
+  border: 0;
+  color: #ffffff;
+  background-color: #212429;
+  border: 1px solid rgb(44, 47, 54);
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+div.swap div.menu div.slippage div.top input:focus {
+  outline: none;
+}
+
+div.swap div.menu div.slippage p.error {
+  color: #268ffc;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 0 0 10px;
+}
+
+/* Slippage Tolerance */
+div.swap div.slippage-tolerance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-bottom: 0px;
+  margin-bottom: -4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #268ffc;
+}
+
+/* Swap Button */
+div.swap div.transaction-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+div.swap div.transaction-buttons div.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #268ffc;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 20px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  padding: 15px;
+  margin: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+div.swap div.transaction-buttons div.button:hover {
+  opacity: 0.8;
+}
+
+div.swap div.transaction-buttons div.button i {
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+div.swap div.transaction-buttons div.button.disabled {
+  background: #888d9b;
+}
+
+/* Swap Symbol */
+div.swap div.swap-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.swap div.swap-symbol div.symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #191b1f;
+  border-radius: 10px;
+  background-color: #212429;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  margin-block: -20px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  cursor: pointer;
+}
+
+div.swap div.swap-symbol div.symbol:hover {
+  opacity: 0.7;
+}
+
+/* Top */
+div.swap div.card div.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.swap div.card div.top div.coin {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background-color: #191b1f;
+  color: #ffffff;
+  border-radius: 50px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  cursor: pointer;
+  user-select: none;
+}
+
+div.swap div.card div.top div.coin:hover {
+  opacity: 0.8;
+}
+
+div.swap div.card div.top div.coin img {
+  width: 24px;
+  height: 24px;
+}
+
+div.swap div.card div.top div.coin p {
+  font-weight: 500;
+  font-size: 18px;
+  margin-inline: 10px;
+}
+
+div.swap div.card div.top div.coin i {
+  font-size: 14px;
+}
+
+div.swap div.card div.top i.inputSpinner {
+  color: #ffffff;
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+div.swap div.card div.top input {
+  background: transparent;
+  color: #ffffff;
+  border: 0;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 500;
+  width: 50%;
+}
+
+div.swap div.card div.top input:focus {
+  outline: none;
+}
+
+/* Messages */
+div.swap div.approved-hash-message {
+  padding: 10px 12px;
+  background-color: #212429;
+  border-radius: 12px;
+  margin-top: 6px;
+  margin-inline: 4px;
+}
+
+div.swap div.approved-hash-message p {
+  word-break: break-all;
+  color: #ffffff;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+div.swap div.approved-hash-message p a {
+  color: #268ffc;
+  font-size: 15px;
+}
+
+div.swap div.approved-hash-message div.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+div.swap div.approved-hash-message div.top i.fa-times {
+  color: #ffffff;
+}
+
+/* Bottom */
+div.swap div.card div.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888d9b;
+}
+
+div.swap div.card div.bottom div.calculate {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+div.swap div.card div.bottom div.calculate:hover {
+  opacity: 0.8;
+}
+
+div.swap div.card div.bottom div.calculate:active {
+  filter: brightness(0.9);
+}
+
+/* Swap List */
+div.swap-wrapper div.swap-list {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  width: 450px;
+  margin: 0 auto;
+  background: #191b1f;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+div.swap-wrapper div.swap-list div.top-menu {
+  display: flex;
+  align-items: center;
+}
+
+div.swap-wrapper div.swap-list div.top-menu div.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #212429;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  cursor: pointer;
+}
+
+div.swap-wrapper div.swap-list div.close:hover {
+  opacity: 0.8;
+}
+
+div.swap-wrapper div.swap-list div.close:active {
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+div.swap-wrapper div.swap-list div.top-menu input {
+  border: 0;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #212429;
+  padding-inline: 10px;
+  font-size: 12px;
+  height: 24px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+}
+
+div.swap-wrapper div.swap-list div.top-menu input:focus {
+  outline: none;
+}
+
+div.swap-wrapper div.swap-list div.list {
+  height: 400px;
+  overflow: scroll;
+}
+
+div.swap-wrapper div.swap-list div.list div.token {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #212429;
+  cursor: pointer;
+  user-select: none;
+}
+
+div.swap-wrapper div.swap-list div.list div.token:hover {
+  background: #212429;
+}
+
+div.swap-wrapper div.swap-list div.list div.token img {
+  width: 24px;
+  margin-right: 10px;
+}
+
+div.swap-wrapper div.swap-list div.list div.token p.symbol {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+div.swap-wrapper div.swap-list div.list div.token p.name {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888d9b;
+}
+
+@media screen and (max-width: 460px) {
+  div.swap {
+    width: 95%;
+  }
+
+  div.swap-wrapper div.swap-list {
+    width: 95%;
+  }
+
+  div.swap-wrapper div.quote-data {
+    width: 95%;
+  }
+}

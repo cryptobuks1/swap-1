@@ -1,0 +1,114 @@
+div.import {
+  width: 700px;
+  margin: 40px auto;
+
+  div.importOptions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #191b1f;
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+      rgb(25 19 38 / 5%) 0px 1px 1px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 4px;
+    border-radius: 8px;
+
+    .selected {
+      background-color: #202328;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+
+      img {
+        margin-right: 10px;
+        width: 24px;
+      }
+
+      p {
+        color: #ffffff;
+        font-size: 14px;
+      }
+
+      div.imgIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #d9ebff;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: #268ffc;
+        font-size: 12px;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.8);
+      }
+    }
+  }
+
+  div.importModes {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #191b1f;
+    padding: 15px 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+      rgb(25 19 38 / 5%) 0px 1px 1px;
+
+    p.header {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 18px;
+      margin-bottom: 8px;
+
+      &:not(:first-of-type) {
+        margin-top: 20px;
+      }
+    }
+
+    input, textarea {
+      background-color: #202328;
+      border: 1px solid #2a2d34;
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: #d9ebff;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border: 1px solid #9666d8;
+      }
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      background-color: #9666d8;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding-block: 20px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "Cera";
+  font-weight: 400;
+  src: url(/fonts/CeraRoundProRegular.woff);
+}
+
+@font-face {
+  font-family: "Cera";
+  font-weight: 500;
+  src: url(/fonts/CeraRoundProMedium.woff);
+}
+
+@font-face {
+  font-family: "Cera";
+  font-weight: 600;
+  src: url(/fonts/CeraRoundProBold.woff);
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  font-weight: 500;
+  src: url(/fonts/CeraProMedium.otf);
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  font-weight: 600;
+  src: url(/fonts/CeraProBold.otf);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Cera";
+  scroll-behavior: smooth;
+}
+
+html {
+  background-color: rgb(33, 36, 41) !important;
+}
+
+div.radial-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  width: 200vw;
+  height: 200vh;
+  mix-blend-mode: color;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #268ffc10 0,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translate(-50vw, -100vh);
+  z-index: -1;
+}
+
+/* Header */
+
+@media screen and (max-width: 700px) {
+  div.header div.profile {
+    bottom: 10px;
+  }
+
+  div.header div.profile div.wallet-menu,
+  div.header div.profile div.settings-menu {
+    bottom: 40px;
+    top: unset;
+  }
+
+  div.header div.network p {
+    /* display: none; */
+  }
+
+  div.header div.network img {
+    /* margin-right: 0; */
+  }
+}
