@@ -4,7 +4,7 @@ div.header {
   justify-content: space-between;
   width: 450px;
   margin: 10px auto;
-  margin-top: 30px;
+  margin-top: 00px;
   
   div.filter {
     position: absolute;
@@ -140,6 +140,7 @@ div.header {
     box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
       rgb(25 19 38 / 5%) 0px 1px 1px;
     border-radius: 8px;
+    margin-top: 30px;
     z-index: 10;
 
     div.top {
@@ -287,5 +288,12 @@ div.header {
 @media screen and (max-width: 450px) {
   div.header {
     width: 94%;
+  }
+}
+
+//Only show on 3x density devices
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  div.filter {
+    -webkit-backdrop-filter: blur(10px);
   }
 }
