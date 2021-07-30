@@ -25,12 +25,17 @@ const swap = () => {
   const [approvedHash, setApprovedHash] = useState(null)
 
   const getAddresses = () => {
+    if(!localStorage.getItem('wallet'))
+      localStorage.setItem('wallet', '{}')
     let wallet = JSON.parse(localStorage.getItem('wallet'))
     setPrivateKey(sessionStorage.getItem('privateKey'))
     setAddress(Object.keys(wallet).length !== 0 ? wallet.wallet[0].address : null)
   }
 
   const getNetwork = async() => {
+    if(!localStorage.getItem('swapNetwork'))
+      localStorage.setItem('swapNetwork', '1')
+    
     let net = JSON.parse(localStorage.getItem('swapNetwork'))
     setNetwork(net)
 
