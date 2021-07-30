@@ -1,10 +1,9 @@
 div.header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 450px;
-  margin: 10px auto;
-  margin-top: 00px;
+  justify-content: flex-end;
+  // width: 450px;
+  // margin: 10px auto;
   
   div.filter {
     position: absolute;
@@ -28,6 +27,7 @@ div.header {
     border-radius: 6px;
     font-weight: 500;
     font-size: 12px;
+    margin-right: 10px;
     box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
       rgb(25 19 38 / 5%) 0px 1px 1px;
     cursor: pointer;
@@ -122,6 +122,10 @@ div.header {
 
         i {
           margin-left: 5px;
+        }
+
+        &.addressText {
+          display: none;
         }
       }
     }
@@ -288,7 +292,110 @@ div.header {
 @media screen and (max-width: 450px) {
   div.header {
     width: 94%;
-    margin-top: 30px;
+  
+    div.menu {
+      background: #57a8ff;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 10px;
+      height: 28px;
+      padding-right: 6px;
+
+      p {
+        display: none;
+      }
+
+      img {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+      }
+  
+      i {
+        margin-left: 8px;
+        font-size: 10px;
+        margin-top: 2px;
+      }
+    }
+  
+    div.connectedProfile {
+      background: #57a8ff;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 10px;
+      height: 28px;
+      margin-right: 5px;
+  
+      div.profile {
+        background-color: #7abaff;
+        padding: 2px 8px;
+        border-radius: 50px;
+        width: fit-content;
+
+        img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 0;
+          margin-right: 0;
+        }
+
+        p.addressText {
+          display: none;
+        }
+  
+        p.logBtn {
+          padding: 4px 0;
+        }
+      }
+  
+      div.cog {
+        padding-inline: 8px;
+      }
+  
+      div.profileSettings {
+        bottom: none;
+
+        &.cogMenu {
+          margin-bottom: -25px;
+        }
+
+        &.profileSettingsMenu {
+          margin-bottom: -30px;
+        }
+  
+        p {
+          text-align: right;
+          width: 100px;
+          padding-block: 6px;
+
+          i {
+            margin-left: 5px;
+          }
+
+          &.addressText {
+            display: block;
+          }
+
+          &:first-of-type {
+            padding-top: 0;
+            padding-bottom: 6px;
+          }
+
+          &:last-of-type {
+            padding-top: 6px;
+            padding-bottom: 0;
+          }
+
+          &:not(:last-of-type) {
+            border-bottom: 1px solid #aaa;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -2,7 +2,6 @@ div.header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 14px 50px;
-  // background-color: #212429;
 
   div.left {
     color: #ffffff;
@@ -49,9 +48,20 @@ div.header {
 @media screen and (max-width: 450px) {
   div.header {
     padding: 14px;
-  
-    div.right {
-      display: none;
+    // background-color: #212429;
+    background-color: #268ffc;
+    box-shadow: 0 0 10px #268ffc9e;
+
+    div.left {
+
+      p.logo {
+        // font-size: 18px;
+      }
+
+      p.app {
+        font-size: 12px;
+        font-weight: 500;
+      }
     }
   }
 }

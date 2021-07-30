@@ -1,6 +1,6 @@
 div.swap {
   width: 450px;
-  margin: 0px auto;
+  margin: 20px auto;
   background: #191b1f;
   padding: 10px;
   box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
@@ -417,6 +417,7 @@ div.swapList {
 @media screen and (max-width: 460px) {
   div.swap {
     width: 95%;
+    margin-top: 50px;
   }
 
   div.swapWrapper { 

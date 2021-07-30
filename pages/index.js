@@ -2,7 +2,6 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import SwapList from '../components/Swap/SwapList'
 import Coin from '../components/Swap/Coin'
-import SwapHeader from '../components/Swap/SwapHeader'
 import styles from '../styles/swap.module.scss'
 
 const swap = () => {
@@ -116,7 +115,6 @@ const swap = () => {
       {swapMenu1 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu1} setCoin={setCoin1} styles={styles} />}
       {swapMenu2 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu2} setCoin={setCoin2} styles={styles} />}
       <div className={styles.filters} style={{filter: (swapMenu1 || swapMenu2) ? 'blur(2px) brightness(0.9)' : 'blur(0) brightness(1)'}}>
-        <SwapHeader />
         <div className={styles.swap}>
           <div className={styles.menu}>
             <div className={styles.top}>

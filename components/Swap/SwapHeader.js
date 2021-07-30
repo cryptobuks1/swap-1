@@ -21,6 +21,7 @@ const SwapHeader = () => {
   const [address, setAddress] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
   const [profileSettings, setProfileSettings] = useState(false)
+  const [windowWidth, setWindowWidth] = useState()
 
   const importWallet = async() => {
     let res = await axios.post('/api/wallet/import-wallet', {
@@ -88,6 +89,7 @@ const SwapHeader = () => {
     loadWalletOnLocalStorage()
     loadLoggedInSessionFromStorage()
     getNetwork()
+    setWindowWidth(window.innerWidth)
   }, [])
 
   return (
@@ -111,7 +113,7 @@ const SwapHeader = () => {
 
       {address == null ?
         <div className={styles.menu} style={{padding: '8px 15px'}} onClick={() => setConnectMenu(true)}>
-          Connect Wallet 
+          Connect {windowWidth > 450 && 'Wallet'} 
           <i className='far fa-ellipsis-v'></i>
         </div>
       :
@@ -119,7 +121,7 @@ const SwapHeader = () => {
           {loggedIn ?
             <div className={styles.profile} onClick={() => setProfileSettings(!profileSettings)}>
               <IdenticonIcon image={address} />
-              <p>{address.slice(0, 6)}...{address.slice(38, 42)}</p>
+              <p className={styles.addressText}>{address.slice(0, 6)}...{address.slice(38, 42)}</p>
             </div>
           :
             <div className={styles.profile} onClick={() => setPasswordMenu(true)}>
@@ -131,14 +133,16 @@ const SwapHeader = () => {
             <i className='fal fa-user-cog'></i>
           </div>
 
-          {profileSettings && 
-            <div className={styles.profileSettings}>
+          {cogMenu && 
+            <div className={`${styles.profileSettings} ${styles.cogMenu}`}>
+              <p>Settings <i className='fal fa-sliders-v-square'></i></p>
               <p onClick={removeWallet}>Remove Wallet <i className='fad fa-trash-alt'></i></p>
             </div>
           }
 
-          {cogMenu &&
-            <div className={styles.profileSettings}>
+          {profileSettings &&
+            <div className={`${styles.profileSettings} ${styles.profileSettingsMenu}`}>
+              <p className={styles.addressText}>{address.slice(0, 6)}...{address.slice(37, 42)} <i className='fal fa-wallet'></i></p>
               <p onClick={logOutWallet}>Log out <i className='far fa-sign-out-alt'></i></p>
             </div>
           }
