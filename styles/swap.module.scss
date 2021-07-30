@@ -1,0 +1,450 @@
+div.swap {
+  width: 450px;
+  margin: 0px auto;
+  background: #191b1f;
+  padding: 10px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  border-radius: 24px;
+
+  // Coin Cards
+  div.card {
+    border-radius: 20px;
+    background-color: #212429;
+    border: 1px solid rgb(44, 47, 54);
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+      rgb(25 19 38 / 5%) 0px 1px 1px;
+    padding: 15px;
+    margin: 5px;
+
+    div.top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      div.coin {
+        display: flex;
+        align-items: center;
+        padding: 8px 14px;
+        background-color: #191b1f;
+        color: #ffffff;
+        border-radius: 50px;
+        box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+          rgb(25 19 38 / 5%) 0px 1px 1px;
+        cursor: pointer;
+        user-select: none;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+
+        p {
+          font-weight: 500;
+          font-size: 18px;
+          margin-inline: 10px;
+        }
+
+        i {
+          font-size: 14px;
+
+          &.inputSpinner {
+            color: #ffffff;
+            -webkit-animation: spin 1.5s linear infinite;
+            -moz-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+          }
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          filter: brightness(0.9);
+        }
+      }
+
+      input {
+        background: transparent;
+        color: #ffffff;
+        border: 0;
+        text-align: right;
+        font-size: 18px;
+        font-weight: 500;
+        width: 50%;
+        
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    div.bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #888d9b;
+
+      div.calculate {
+        font-size: 17px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  }
+
+  // Top Swap Menu - Slippage
+  div.menu {
+    padding: 5px 10px;
+    user-select: none;
+
+    div.top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      div.cog {
+        color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          filter: brightness(0.9);
+        }
+      }
+    }
+
+    div.slippage {
+      
+      p.infoHeader {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 10px 5px;
+        color: #ffffff;
+      }
+
+      p.error {
+        color: #268ffc;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 10px 0 0 10px;
+      }
+
+      div.top {
+        display: grid;
+        grid-template-columns: 15% 15% 15% 51% 4%;
+        
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 500;
+          margin-left: 4px;
+          color: #ffffff;
+        }
+
+        div.slipBtn {
+          background: #212429;
+          box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+            rgb(25 19 38 / 5%) 0px 1px 1px;
+          color: #ffffff;
+          border-radius: 10px;
+          padding-block: 10px;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        div.slipBtn.active {
+          background-color: #268ffc;
+          color: #ffffff;
+        }
+
+        input {
+          border: 0;
+          color: #ffffff;
+          background-color: #212429;
+          border: 1px solid rgb(44, 47, 54);
+          box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+            rgb(25 19 38 / 5%) 0px 1px 1px;
+          padding: 10px;
+          border-radius: 10px;
+          font-weight: 500;
+          font-size: 13px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      div.top > * {
+        margin-inline: 2px;
+      }
+
+      div.top > *:not(:last-child) {
+        border: 1px solid rgb(44, 47, 54);
+      }
+    }
+  }
+
+  // Slippage Tolerance display text - bottom
+  div.slippageTolerance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    padding-bottom: 0px;
+    margin-bottom: -4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #268ffc;
+  }
+
+  // Swap Buttons
+  div.transactionButtonsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  div.transactionButtons {
+
+    div.button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #268ffc;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 20px;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      padding: 15px;
+      margin: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      user-select: none;
+      
+      i {
+        font-size: 12px;
+        margin-right: 6px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.disabled {
+        background: #888d9b;
+      }
+    }
+  }
+
+  // Swap Symbol - Arrow
+  div.swapSymbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div.symbol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #191b1f;
+      border-radius: 10px;
+      background-color: #212429;
+      color: #ffffff;
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+      margin-block: -20px;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
+  // Messages
+  div.approvedHashMessage {
+    padding: 10px 12px;
+    background-color: #212429;
+    border-radius: 12px;
+    margin-top: 6px;
+    margin-inline: 4px;
+
+    p {
+      word-break: break-all;
+      color: #ffffff;
+      line-height: 20px;
+      font-size: 15px;
+
+      a {
+        color: #268ffc;
+        font-size: 15px;
+      }
+    }
+
+    div.top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+      i.fa-times {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Swap List of Tokens
+div.swapList {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  width: 450px;
+  margin: 0 auto;
+  background: #191b1f;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  border-radius: 20px;
+  z-index: 1;
+  
+  div.topMenu {
+    display: flex;
+    align-items: center;
+
+    div.close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      color: #ffffff;
+      background: #212429;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+        box-shadow: none;
+      }
+    }
+    
+    input {
+      border: 0;
+      border-radius: 4px;
+      color: #ffffff;
+      background-color: #212429;
+      padding-inline: 10px;
+      font-size: 12px;
+      height: 24px;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  div.list {
+    height: 400px;
+    overflow: scroll;
+
+    div.token {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-top: 1px solid #212429;
+      cursor: pointer;
+      user-select: none;
+
+      img {
+        width: 24px;
+        margin-right: 10px;
+      }
+
+      p.symbol {
+        color: #ffffff;
+        font-weight: 500;
+      }
+
+      p.name {
+        font-size: 12px;
+        font-weight: 400;
+        color: #888d9b;
+      }
+
+      &:hover {
+        background: #212429;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media screen and (max-width: 460px) {
+  div.swap {
+    width: 95%;
+  }
+
+  div.swapWrapper { 
+    div.swapList {
+      width: 95%;
+    }
+
+    div.quoteData {
+      width: 95%;
+    }
+  }
+}
+
+// Keyframes
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

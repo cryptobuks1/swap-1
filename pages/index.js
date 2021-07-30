@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import SwapList from '../components/Swap/SwapList'
 import Coin from '../components/Swap/Coin'
 import SwapHeader from '../components/Swap/SwapHeader'
+import styles from '../styles/swap.module.scss'
 
 const swap = () => {
   // Legacy
@@ -109,36 +110,36 @@ const swap = () => {
   }, [])
 
   return (
-    <div className='swap-wrapper'>
+    <div className={styles.swapWrapper}>
       {tokens != null && 
       <>
-      {swapMenu1 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu1} setCoin={setCoin1} />}
-      {swapMenu2 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu2} setCoin={setCoin2} />}
-      <div className='filters' style={{filter: (swapMenu1 || swapMenu2) ? 'blur(2px) brightness(0.9)' : 'blur(0) brightness(1)'}}>
+      {swapMenu1 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu1} setCoin={setCoin1} styles={styles} />}
+      {swapMenu2 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu2} setCoin={setCoin2} styles={styles} />}
+      <div className={styles.filters} style={{filter: (swapMenu1 || swapMenu2) ? 'blur(2px) brightness(0.9)' : 'blur(0) brightness(1)'}}>
         <SwapHeader />
-        <div className='swap'>
-          <div className='menu'>
-            <div className='top'>
-              <div className='cog' onClick={() => setMenu(!menu)}>
+        <div className={styles.swap}>
+          <div className={styles.menu}>
+            <div className={styles.top}>
+              <div className={styles.cog} onClick={() => setMenu(!menu)}>
                 <i className='fal fa-cog'></i>
               </div>
             </div>
 
             {menu && 
-              <div className='slippage'>
-                <p className='info-header'>Slippage tolerance</p>
-                <div className='top'>
-                  <div className={slippage == 0.1 ? 'active slip-btn' : 'slip-btn'} onClick={() => setSlippage(0.1)}>0.1%</div>
-                  <div className={slippage == 0.5 ? 'active slip-btn' : 'slip-btn'} onClick={() => setSlippage(0.5)}>0.5%</div>
-                  <div className={slippage == 1 ? 'active slip-btn' : 'slip-btn'} onClick={() => setSlippage(1)}>1%</div>
+              <div className={styles.slippage}>
+                <p className={styles.infoHeader}>Slippage tolerance</p>
+                <div className={styles.top}>
+                  <div className={slippage == 0.1 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(0.1)}>0.1%</div>
+                  <div className={slippage == 0.5 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(0.5)}>0.5%</div>
+                  <div className={slippage == 1 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(1)}>1%</div>
                   <input value={slippage} onChange={e => setSlippage(e.target.value)} />
                   <span>%</span>
                 </div>
 
-                {slippage == 0.1 && <p className='error'>Your transaction may fail</p>}
-                {slippage == 0 && <p className='error'>Enter a valid slippage percentage</p>}
-                {(slippage >= 6 && slippage <= 50) && <p className='error'>Your transaction may be frontrun</p>}
-                {slippage > 50 && <p className='error'>Enter a valid slippage percentage</p>}
+                {slippage == 0.1 && <p className={styles.error}>Your transaction may fail</p>}
+                {slippage == 0 && <p className={styles.error}>Enter a valid slippage percentage</p>}
+                {(slippage >= 6 && slippage <= 50) && <p className={styles.error}>Your transaction may be frontrun</p>}
+                {slippage > 50 && <p className={styles.error}>Enter a valid slippage percentage</p>}
               </div>}
           </div>
 
@@ -152,10 +153,11 @@ const swap = () => {
             setCoin2Input={setCoin2Input} 
             setSwapMenu={setSwapMenu1} 
             calculateInputs={calculateInputs}
+            styles={styles}
             key={[coin1.address, approvedHash]} />}
 
-          <div className='swap-symbol' onClick={swapSymbolButton}>
-            <div className='symbol'>
+          <div className={styles.swapSymbol} onClick={swapSymbolButton}>
+            <div className={styles.symbol}>
               <i className='far fa-arrow-down'></i>
             </div>
           </div>
@@ -169,30 +171,31 @@ const swap = () => {
             coin2Input={coin2Input} 
             setCoin2Input={setCoin2Input} 
             setSwapMenu={setSwapMenu2}
-            calculateInputs={calculateInputs} 
+            calculateInputs={calculateInputs}
+            styles={styles}
             key={[coin2.address, approvedHash]} />}
 
-          <div className='slippage-tolerance'>
+          <div className={styles.slippageTolerance}>
             <p>Slippage Tolerance</p>
             <p>{slippage}%</p>
           </div>
 
-          <div className={coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' ? 'transaction-buttons transaction-buttons-grid' : 'transaction-buttons'}>
-            {coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' && <div className='button' onClick={approveTokens}>
+          <div className={coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' ? `${styles.transactionButtons} ${styles.transactionButtonsGrid}` : styles.transactionButtons}>
+            {coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' && <div className={styles.button} onClick={approveTokens}>
               <i className='fad fa-wand-magic'></i>
               <p>Approve</p>
             </div>}
             <div className={
               (coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') ? 
-              (approved ? 'button' : 'button disabled') : 'button'} 
+              (approved ? styles.button : `${styles.button} ${styles.disabled}`) : styles.button} 
               onClick={swapTokens}>
               <i className='fad fa-route'></i>
               <p>Swap</p>
             </div>
           </div>
 
-          {approvedHash !== null && <div className='approved-hash-message'>
-            <div className='top'>
+          {approvedHash !== null && <div className={styles.approvedHashMessage}>
+            <div className={styles.top}>
               <p><i className='fad fa-lightbulb-exclamation'></i> Approve Message</p>
               <i className='far fa-times' onClick={() => setApprovedHash(null)}></i>
             </div>

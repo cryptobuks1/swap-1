@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const Coin = ({wallet, coin, networkId, coin1Input, setCoin1Input, coin2Input, setCoin2Input, setSwapMenu, calculateInputs}) => {
+const Coin = ({wallet, coin, networkId, coin1Input, setCoin1Input, coin2Input, setCoin2Input, setSwapMenu, calculateInputs, styles}) => {
   const [balance, setBalance] = useState(0)
 
   const getCoinBalance = async() => {
@@ -21,9 +21,9 @@ const Coin = ({wallet, coin, networkId, coin1Input, setCoin1Input, coin2Input, s
   }, [])
 
   return (
-    <div className='card'>
-      <div className='top'>
-        <div className='coin' onClick={() => setSwapMenu(true)}>
+    <div className={styles.card}>
+      <div className={styles.top}>
+        <div className={styles.coin} onClick={() => setSwapMenu(true)}>
           <img src={coin.logoURI} alt='' />
           <p>{coin.symbol}</p>
           <i className='far fa-chevron-down'></i>
@@ -42,11 +42,11 @@ const Coin = ({wallet, coin, networkId, coin1Input, setCoin1Input, coin2Input, s
         }
       </div>
 
-      <div className='bottom'>
+      <div className={styles.bottom}>
         <p>Balance: {balance.toFixed(4)} {coin.symbol}</p>
         {/* <p>~ 0.0</p> */}
         {coin1Input === false &&
-          <div className='calculate' onClick={calculateInputs}>
+          <div className={styles.calculate} onClick={calculateInputs}>
             <i className='fad fa-calculator-alt'></i>
           </div>
         }

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-const SwapList = ({tokens, setSwapMenu, setCoin}) => {
+const SwapList = ({tokens, setSwapMenu, setCoin, styles}) => {
   const [coinsSearched, setCoinsSearched] = useState(tokens);
   const [search, setSearch] = useState('');
   const [startSearching, setStartSearching] = useState(false)
 
   return (
-    <div className='swap-list'>
-      <div className='top-menu'>
-        <div className='close' onClick={() => setSwapMenu(false)}>
+    <div className={styles.swapList}>
+      <div className={styles.topMenu}>
+        <div className={styles.close} onClick={() => setSwapMenu(false)}>
           <i className='far fa-times'></i>
         </div>
       
@@ -29,13 +29,13 @@ const SwapList = ({tokens, setSwapMenu, setCoin}) => {
         />
       </div>
 
-      {startSearching && <div className='list'>
+      {startSearching && <div className={styles.list}>
          {coinsSearched.map((address, index) => 
-            <div className='token' onClick={() => {setCoin(tokens[address]); setSwapMenu(false)}} key={index}>
+            <div className={styles.token} onClick={() => {setCoin(tokens[address]); setSwapMenu(false)}} key={index}>
               <img src={tokens[address].logoURI} alt='' />
               <div>
-                <p className='symbol'>{tokens[address].symbol}</p>
-                <p className='name'>{tokens[address].name}</p>
+                <p className={styles.symbol}>{tokens[address].symbol}</p>
+                <p className={styles.name}>{tokens[address].name}</p>
               </div>
             </div>
           )}
