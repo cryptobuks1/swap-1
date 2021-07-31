@@ -1,11 +1,14 @@
 div.swap {
+  position: relative;
   width: 450px;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-top: 20px;
   background: #191b1f;
   padding: 10px;
   box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
     rgb(25 19 38 / 5%) 0px 1px 1px;
   border-radius: 24px;
+  z-index: 1;
 
   // Coin Cards
   div.card {
@@ -285,38 +288,6 @@ div.swap {
       }
     }
   }
-
-  // Messages
-  div.approvedHashMessage {
-    padding: 10px 12px;
-    background-color: #212429;
-    border-radius: 12px;
-    margin-top: 6px;
-    margin-inline: 4px;
-
-    p {
-      word-break: break-all;
-      color: #ffffff;
-      line-height: 20px;
-      font-size: 15px;
-
-      a {
-        color: #268ffc;
-        font-size: 15px;
-      }
-    }
-
-    div.top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 5px;
-
-      i.fa-times {
-        color: #ffffff;
-      }
-    }
-  }
 }
 
 // Swap List of Tokens
@@ -417,8 +388,59 @@ div.swapWrapper {
 
   p.noticeMSG {
     text-align: center;
-    color: #ffffff;
+    color: #cccccc;
     font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+// Approved Hash Messages
+div.approvedHashMessage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #29323e;
+  width: 450px;
+  margin: 0 auto;
+  margin-top: -20px;
+  padding: 15px;
+  padding-top: 30px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+
+  p {
+    font-family: 'Cera Pro';
+    font-weight: 400;
+    word-break: break-all;
+    color: #ffffff;
+    line-height: 20px;
+    font-size: 13px;
+    padding-inline: 20px;
+
+    a {
+      color: #268ffc;
+      font-size: 15px;
+    }
+  }
+
+  i.close {
+    color: #ffffff;
+    cursor: pointer;
+    padding: 3px 6px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+
+  i.bulb {
+    color: #81b0e0;
   }
 }
 
@@ -427,6 +449,10 @@ div.swapWrapper {
   div.swap {
     width: 95%;
     margin-top: 50px;
+  }
+
+  div.approvedHashMessage {
+    width: 95%;
   }
 
   div.swapWrapper { 

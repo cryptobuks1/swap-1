@@ -2,7 +2,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import SwapList from '../components/Swap/SwapList'
 import Coin from '../components/Swap/Coin'
+import OrderHistory from '../components/Swap/OrderHistory'
 import styles from '../styles/swap.module.scss'
+import ApprovedHashMessage from '../components/Swap/ApprovedHashMessage'
 
 const swap = () => {
   // Legacy
@@ -191,15 +193,11 @@ const swap = () => {
               <p>Swap</p>
             </div>
           </div>
-
-          {approvedHash !== null && <div className={styles.approvedHashMessage}>
-            <div className={styles.top}>
-              <p><i className='fad fa-lightbulb-exclamation'></i> Approve Message</p>
-              <i className='far fa-times' onClick={() => setApprovedHash(null)}></i>
-            </div>
-            <p>Transaction <a href={`https://etherscan.io/search?q=${approvedHash}`}>{approvedHash}</a> was mined.</p>
-          </div>}
         </div>
+
+        {approvedHash !== null && <ApprovedHashMessage approvedHash={approvedHash} setApprovedHash={setApprovedHash} styles={styles} />}
+        
+        <OrderHistory />
       </div>
       </>}
       <p className={styles.noticeMSG}>Please do not use this app - yet - as it's still unstable.</p>

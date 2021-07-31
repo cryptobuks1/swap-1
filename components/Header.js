@@ -19,13 +19,6 @@ const Header = () => {
       </div>
 
       <div className={styles.right}>
-        {/* <ul>
-          <li>Wallet</li>
-          <li className={router.pathname == '/' ? styles.selected : ''}>Swap</li>
-          <li>Blog</li>
-          <li>About</li>
-        </ul> */}
-
         <SwapHeader />
       </div>
     </div>

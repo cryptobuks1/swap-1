@@ -23,25 +23,6 @@ div.header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
-    ul {
-      list-style: none;
-
-      li {
-        display: inline-block;
-        color: #bbbbbb;
-        margin-inline: 15px;
-        font-family: 'Cera Pro';
-        font-weight: 500;
-        font-size: 15px;
-        user-select: none;
-        cursor: pointer;
-
-        &.selected {
-          color: #ffffff;
-        }
-      }
-    }
   }
 }
 
