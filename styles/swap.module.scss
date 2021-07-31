@@ -413,6 +413,15 @@ div.swapList {
   }
 }
 
+div.swapWrapper {
+
+  p.noticeMSG {
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+  }
+}
+
 // Media Queries
 @media screen and (max-width: 460px) {
   div.swap {

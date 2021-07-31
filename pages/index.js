@@ -202,6 +202,7 @@ const swap = () => {
         </div>
       </div>
       </>}
+      <p className={styles.noticeMSG}>Please do not use this app - yet - as it's still unstable.</p>
     </div>
   )
 }
