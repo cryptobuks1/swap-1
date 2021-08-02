@@ -15,13 +15,13 @@ const Layout = ({children}) => {
     }
   }
 
-  const getNetwork = async() => {
+  const setNetwork = async() => {
     if(!localStorage.getItem('swapNetwork'))
       localStorage.setItem('swapNetwork', JSON.stringify(1))
   }
 
   useEffect(() => {
-    getNetwork()
+    setNetwork()
     loadWalletOnLocalStorage()
     loadLoggedInSessionFromStorage()
   }, [])

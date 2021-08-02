@@ -5,13 +5,14 @@ export default async function handler(req, res) {
   let symbol = req.body.symbol
   let tokenAddress = req.body.tokenAddress;
   let walletAddress = req.body.walletAddress;
-  let networkId = req.body.networkId
-  const INFURA_KEY = process.env.INFURA_KEY
-
-  let eth_provider = `https://mainnet.infura.io/v3/${INFURA_KEY}`
-  // let eth_provider = 'http://127.0.0.1:8545'
-  const web3 = new Web3(networkId === 56 ? 'https://bsc-dataseed1.binance.org:443' : eth_provider);
   
+  const INFURA_KEY = process.env.INFURA_KEY
+  const eth_provider = `https://mainnet.infura.io/v3/${INFURA_KEY}`
+  const eth_testnet_provider = 'http://127.0.0.1:8545'
+  const bsc_provider = 'https://bsc-dataseed1.binance.org:443'
+  const networkId = req.body.networkId
+  let web3 = new Web3(networkId === 1 ? eth_testnet_provider : bsc_provider)
+
   if(symbol === 'BNB' || symbol === 'ETH' || symbol === 'MATIC') {
     let balance = await web3.eth.getBalance(walletAddress)
     res.status(200).json(web3.utils.fromWei(balance))

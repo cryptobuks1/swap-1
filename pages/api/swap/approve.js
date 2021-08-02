@@ -3,8 +3,12 @@ import Web3 from 'web3'
 
 export default async function handler(req, res) {
   // POST info
+  const INFURA_KEY = process.env.INFURA_KEY
+  const eth_provider = `https://mainnet.infura.io/v3/${INFURA_KEY}`
+  const eth_testnet_provider = 'http://127.0.0.1:8545'
+  const bsc_provider = 'https://bsc-dataseed1.binance.org:443'
   const networkId = req.body.networkId
-  const web3 = new Web3(networkId === 1 ? 'http://127.0.0.1:8545' : 'https://bsc-dataseed1.binance.org:443')
+  let web3 = new Web3(networkId === 1 ? eth_testnet_provider : bsc_provider)
 
   const from_token_address = req.body.fromToken
   const to_token_address = req.body.toToken

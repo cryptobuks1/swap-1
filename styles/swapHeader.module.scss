@@ -2,8 +2,6 @@ div.header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  // width: 450px;
-  // margin: 10px auto;
   
   div.filter {
     position: absolute;
@@ -118,14 +116,39 @@ div.header {
       padding: 10px;
       border-radius: 4px;
 
+      &.cogMenu {
+        margin-bottom: -30px;
+      }
+
+      &.profileSettingsMenu {
+        margin-bottom: -30px;
+      }
+
       p {
+        text-align: right;
+        width: 140px;
+        padding-block: 6px;
 
         i {
           margin-left: 5px;
         }
 
         &.addressText {
-          display: none;
+          display: block;
+        }
+
+        &:first-of-type {
+          padding-top: 0;
+          padding-bottom: 6px;
+        }
+
+        &:last-of-type {
+          padding-top: 6px;
+          padding-bottom: 0;
+        }
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #aaa;
         }
       }
     }
@@ -285,6 +308,38 @@ div.header {
           }
         }
       }
+
+      div.blockchain {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        user-select: none;
+        cursor: pointer;
+
+        img {
+          width: 30px;
+          margin-right: 10px;
+        }
+
+        p {
+          font-family: 'Cera Pro';
+          font-family: 500;
+          font-size: 15px;
+          color: #ffffff;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          filter: brightness(0.9);
+        }
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #4e4949;
+        }
+      }
     }
   }
 }
@@ -365,34 +420,6 @@ div.header {
 
         &.profileSettingsMenu {
           margin-bottom: -30px;
-        }
-  
-        p {
-          text-align: right;
-          width: 100px;
-          padding-block: 6px;
-
-          i {
-            margin-left: 5px;
-          }
-
-          &.addressText {
-            display: block;
-          }
-
-          &:first-of-type {
-            padding-top: 0;
-            padding-bottom: 6px;
-          }
-
-          &:last-of-type {
-            padding-top: 6px;
-            padding-bottom: 0;
-          }
-
-          &:not(:last-of-type) {
-            border-bottom: 1px solid #aaa;
-          }
         }
       }
     }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Wallet from '../Wallet/Wallet'
 import IdenticonIcon from '../IdenticonIcon'
 import styles from '../../styles/swapHeader.module.scss'
 import axios from 'axios'
@@ -7,11 +6,12 @@ import axios from 'axios'
 const SwapHeader = () => {
   const [walletMenu, setWalletMenu] = useState(false)
   const [cogMenu, setCogMenu] = useState(false)
-  const [network, setNetwork] = useState(null)
+  const [network, setNetwork] = useState(1)
   
   // New
   const [connectMenu, setConnectMenu] = useState(false)
   const [passwordMenu, setPasswordMenu] = useState(false)
+  const [blockchainMenu, setBlockchainMenu] = useState(false)
   const [sessionPrivateKey, setSessionPrivateKey] = useState('') // saved private key from private key
   const [importMode, setImportMode] = useState(true) // true == Custom, false == WConnect
   const [privateKey, setPrivateKey] = useState('')
@@ -68,6 +68,9 @@ const SwapHeader = () => {
   }
 
   const loadWalletOnLocalStorage = () => {
+    if(!localStorage.getItem('wallet'))
+      localStorage.setItem('wallet', '{}')
+      
     let wallet = JSON.parse(localStorage.getItem('wallet'))
 
     if(Object.keys(wallet).length !== 0)
@@ -76,39 +79,37 @@ const SwapHeader = () => {
 
   const loadLoggedInSessionFromStorage = () => {
     let logged_in = JSON.parse(sessionStorage.getItem('loggedIn'))
-    console.log(logged_in)
     setLoggedIn(logged_in)
   }
 
   const getNetwork = async() => {
-    let net = JSON.parse(localStorage.getItem('swapNetwork'))
-    setNetwork(net)
+    if(!localStorage.getItem('swapNetwork'))
+      localStorage.setItem('swapNetwork', '1')
+      
+    setNetwork(JSON.parse(localStorage.getItem('swapNetwork')))
   }
-  
+
   useEffect(() => {
+    getNetwork()
     loadWalletOnLocalStorage()
     loadLoggedInSessionFromStorage()
-    getNetwork()
     setWindowWidth(window.innerWidth)
   }, [])
 
   return (
     <div className={styles.header}>
-      {(connectMenu || passwordMenu )&& <div className={styles.filter}></div>}
+      {(connectMenu || passwordMenu || blockchainMenu )&& <div className={styles.filter}></div>}
 
-      <div className={styles.menu}>
-        <img src='https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png' alt='' />
-        <p>Ethereum</p>
-            
-        {/* <div className={network == 56 && styles.selected} onClick={() => setSwapNetwork(56)}>
+      <div className={styles.menu} onClick={() => setBlockchainMenu(true)}>
+        {network === 1 && <>
+          <img src='https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png' alt='' />
+          <p>Ethereum</p>
+        </>}
+
+        {network === 56 && <>
           <img src='https://tokens.1inch.exchange/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png' alt='' />
           <p>Smart Chain</p>
-        </div> */}
-
-        {/* <div className={network == 137 ? 'selected' : ''} onClick={() => setSwapNetwork(137)}>
-          <img src='https://tokens.1inch.exchange/0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0.png' alt='' />
-          <p>Polygon</p>
-        </div> */}
+        </>}
       </div>
 
       {address == null ?
@@ -147,6 +148,32 @@ const SwapHeader = () => {
             </div>
           }
        </div>
+      }
+
+      {blockchainMenu &&
+        <div className={styles.connectMenu}> {/* same styles as connectMenu */}
+          <div className={styles.top}>
+            <p className={styles.header}>Select Blockchain</p>
+            <i className='far fa-times' onClick={() => setBlockchainMenu(false)}></i>
+          </div>
+
+          <div className={styles.bottom}>
+            <div className={styles.blockchain} onClick={() => {setSwapNetwork(1), setBlockchainMenu(false)}}>
+              <img src='https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png' alt='' />
+              <p>Ethereum</p>
+            </div>
+            
+            <div className={styles.blockchain} onClick={() => {setSwapNetwork(56), setBlockchainMenu(false)}}>
+              <img src='https://tokens.1inch.exchange/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png' alt='' />
+              <p>Smart Chain</p>
+            </div>
+
+            {/* {network !== 137 && <div className={styles.blockchain} onClick={() => setSwapNetwork(137)}>
+              <img src='https://tokens.1inch.exchange/0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0.png' alt='' />
+              <p>Polygon</p>
+            </div>} */}
+          </div>
+        </div>
       }
 
       {passwordMenu &&
