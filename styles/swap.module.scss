@@ -48,17 +48,6 @@ div.swap {
           margin-inline: 10px;
         }
 
-        i {
-          font-size: 14px;
-
-          &.inputSpinner {
-            color: #ffffff;
-            -webkit-animation: spin 1.5s linear infinite;
-            -moz-animation: spin 1.5s linear infinite;
-            animation: spin 1.5s linear infinite;
-          }
-        }
-
         &:hover {
           opacity: 0.8;
         }
@@ -79,6 +68,17 @@ div.swap {
         
         &:focus {
           outline: none;
+        }
+      }
+
+      i {
+        font-size: 14px;
+
+        &.inputSpinner {
+          color: #ffffff;
+          -webkit-animation: spin 1.5s linear infinite;
+          -moz-animation: spin 1.5s linear infinite;
+          animation: spin 1.5s linear infinite;
         }
       }
     }

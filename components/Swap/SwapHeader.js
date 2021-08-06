@@ -100,6 +100,10 @@ const SwapHeader = () => {
     <div className={styles.header}>
       {(connectMenu || passwordMenu || blockchainMenu )&& <div className={styles.filter}></div>}
 
+      <div className={styles.gasStation}>
+        <i className='far fa-gas-pump'></i>
+      </div>
+
       <div className={styles.menu} onClick={() => setBlockchainMenu(true)}>
         {network === 1 && <>
           <img src='https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png' alt='' />

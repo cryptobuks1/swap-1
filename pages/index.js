@@ -187,10 +187,12 @@ const swap = () => {
             </div>}
             <div className={
               (coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') ? 
-              (approved ? styles.button : `${styles.button} ${styles.disabled}`) : styles.button} 
-              onClick={swapTokens}>
+              ((approved && coin1Input !== '') ? styles.button : `${styles.button} ${styles.disabled}`) : 
+              coin1Input === '' ? `${styles.button} ${styles.disabled}` : styles.button}  
+              /* Honestly I don't even remember */
+              onClick={coin1Input !== '' ? swapTokens : console.log('can not swap - empty input')}>
               <i className='fad fa-route'></i>
-              <p>Swap</p>
+              <p>{coin1Input === '' ? 'Enter Amount' : 'Swap'}</p>
             </div>
           </div>
         </div>

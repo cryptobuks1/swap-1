@@ -28,13 +28,14 @@ const Coin = ({wallet, coin, networkId, coin1Input, setCoin1Input, coin2Input, s
           <p>{coin.symbol}</p>
           <i className='far fa-chevron-down'></i>
         </div>
+        
         {coin1Input !== false ?
           <input 
             placeholder={0.0} 
             value={coin1Input} 
             onChange={e => setCoin1Input(e.target.value)} />
         :
-          coin2Input === 'loading' ? <i className='fa fa-spinner-third inputSpinner'></i> :
+          coin2Input === 'loading' ? <i className={`fa fa-spinner-third ${styles.inputSpinner}`}></i> :
           <input 
             placeholder={0.0} 
             value={coin2Input} 
