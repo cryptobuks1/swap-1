@@ -101,7 +101,9 @@ const SwapHeader = () => {
       {(connectMenu || passwordMenu || blockchainMenu )&& <div className={styles.filter}></div>}
 
       <div className={styles.gasStation}>
-        <i className='far fa-gas-pump'></i>
+        <a href='https://station.wastebridge.org'>
+          <i className='far fa-gas-pump'></i>
+        </a>
       </div>
 
       <div className={styles.menu} onClick={() => setBlockchainMenu(true)}>
