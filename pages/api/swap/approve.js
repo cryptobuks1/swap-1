@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
     let temp = await axios.get(url);
     temp = temp.data;
-    temp['gas'] = 100000
+    temp['gas'] = 50000
 
     let val = parseInt(temp["value"])
     val = '0x' + val.toString(16)

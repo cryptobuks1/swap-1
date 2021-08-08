@@ -398,7 +398,7 @@ div.header {
       font-size: 10px;
       height: 28px;
       padding-right: 6px;
-
+      
       p {
         display: none;
       }
@@ -413,6 +413,10 @@ div.header {
         margin-left: 8px;
         font-size: 10px;
         margin-top: 2px;
+      }
+
+      &:last-of-type {
+        margin-left: 0;
       }
     }
   
