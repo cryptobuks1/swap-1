@@ -540,6 +540,34 @@ div.approvedHashMessage {
   div.swap {
     width: 95%;
     margin-top: 50px;
+
+    div.gasSelection {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      
+      div.option {
+        
+        &:not(:last-of-type) {
+          padding: 8px 12px;
+        }
+
+      p {
+        font-size: 10px;
+
+        span {
+          font-size: 12px;
+        }
+      }
+  
+        input {
+          padding: 8px;
+          font-size: 13px;
+          width: 80px;
+        }
+      }
+    }
   }
 
   div.approvedHashMessage {

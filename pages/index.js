@@ -17,7 +17,7 @@ const swap = () => {
   const [coin1Input, setCoin1Input] = useState('')
   const [coin2Input, setCoin2Input] = useState('')
   const [network, setNetwork] = useState(null)
-  const [menu, setMenu] = useState(true)
+  const [menu, setMenu] = useState(false)
   const [slippage, setSlippage] = useState(1)
   const [privateKey, setPrivateKey] = useState('')
   let temp_coin
