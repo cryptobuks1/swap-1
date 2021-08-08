@@ -16,6 +16,7 @@ export default async function handler(req, res) {
   const to_token_address = req.body.toToken
   const privateKey = req.body.privateKey
   const slippage = req.body.slippage
+  const gasPrice = req.body.gasPrice
   const amount =  req.body.amountToSell
   const number_of_tokens_in_wei = new BigNumber(parseInt(await web3.utils.toWei(parseFloat(amount).toFixed(15).toString(), 'ether')))
 
@@ -69,7 +70,7 @@ export default async function handler(req, res) {
     //   temp_gas = await web3.eth.estimateGas(temp)
     // } catch(e) {console.log(e)}
     
-    temp.tx['gas'] = 1000000
+    temp.tx['gas'] = gasPrice * 10 ** 9
 
     console.log(temp)
     return temp

@@ -14,6 +14,7 @@ export default async function handler(req, res) {
   const to_token_address = req.body.toToken
   const privateKey = req.body.privateKey
   const slippage = req.body.slippage
+  const gasPrice = req.body.gasPrice
   const amount =  req.body.amountToSell
   const number_of_tokens_in_wei = parseInt(await web3.utils.toWei(parseFloat(amount).toFixed(15).toString(), 'ether'))
 
@@ -42,7 +43,8 @@ export default async function handler(req, res) {
 
     let temp = await axios.get(url);
     temp = temp.data;
-    temp['gas'] = 50000
+    temp['gas'] = gasPrice * 10 ** 9
+
 
     let val = parseInt(temp["value"])
     val = '0x' + val.toString(16)
