@@ -32,6 +32,7 @@ const GasSelection = ({gasPrice, setGasPrice, networkId, styles}) => {
 
   return (
     <div className={styles.gasSelection}>
+      <p className={styles.infoHeader}><i className='fad fa-charging-station'></i> Gas Price</p>
       {gas !== null &&
         <>
           <div className={gasPrice === gas.instant ? `${styles.option} ${styles.active}` : styles.option} onClick={() => setGasPrice(gas.instant)}>

@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import IdenticonIcon from '../IdenticonIcon'
 import styles from '../../styles/swapHeader.module.scss'
 import axios from 'axios'
+import BlockchainMenuButton from '../Header/BlockchainMenuButton'
+import BlockchainMenu from '../Header/BlockchainMenu'
+import PasswordMenu from '../Header/PasswordMenu'
+import ConnectMenu from '../Header/ConnectMenu'
 
 const SwapHeader = () => {
   const [walletMenu, setWalletMenu] = useState(false)
   const [cogMenu, setCogMenu] = useState(false)
   const [network, setNetwork] = useState(1)
-  
-  // New
   const [connectMenu, setConnectMenu] = useState(false)
   const [passwordMenu, setPasswordMenu] = useState(false)
   const [blockchainMenu, setBlockchainMenu] = useState(false)
@@ -106,17 +108,7 @@ const SwapHeader = () => {
         </a>
       </div>
 
-      <div className={styles.menu} onClick={() => setBlockchainMenu(true)}>
-        {network === 1 && <>
-          <img src='https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png' alt='' />
-          <p>Ethereum</p>
-        </>}
-
-        {network === 56 && <>
-          <img src='https://tokens.1inch.exchange/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png' alt='' />
-          <p>Smart Chain</p>
-        </>}
-      </div>
+      <BlockchainMenuButton styles={styles} setBlockchainMenu={setBlockchainMenu} network={network} />
 
       {address == null ?
         <div className={styles.menu} style={{padding: '8px 15px'}} onClick={() => setConnectMenu(true)}>
@@ -156,96 +148,37 @@ const SwapHeader = () => {
        </div>
       }
 
-      {blockchainMenu &&
-        <div className={styles.connectMenu}> {/* same styles as connectMenu */}
-          <div className={styles.top}>
-            <p className={styles.header}>Select Blockchain</p>
-            <i className='far fa-times' onClick={() => setBlockchainMenu(false)}></i>
-          </div>
-
-          <div className={styles.bottom}>
-            <div className={styles.blockchain} onClick={() => {setSwapNetwork(1), setBlockchainMenu(false)}}>
-              <img src='https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png' alt='' />
-              <p>Ethereum</p>
-            </div>
-            
-            <div className={styles.blockchain} onClick={() => {setSwapNetwork(56), setBlockchainMenu(false)}}>
-              <img src='https://tokens.1inch.exchange/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png' alt='' />
-              <p>Smart Chain</p>
-            </div>
-
-            {/* {network !== 137 && <div className={styles.blockchain} onClick={() => setSwapNetwork(137)}>
-              <img src='https://tokens.1inch.exchange/0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0.png' alt='' />
-              <p>Polygon</p>
-            </div>} */}
-          </div>
-        </div>
-      }
+      {blockchainMenu && 
+        <BlockchainMenu 
+          styles={styles} 
+          setBlockchainMenu={setBlockchainMenu} 
+          setSwapNetwork={setSwapNetwork} />}
 
       {passwordMenu &&
-        <div className={styles.connectMenu}> {/* same styles as connectMenu */}
-          <div className={styles.top}>
-            <p className={styles.header}>Type Password</p>
-            <i className='far fa-times' onClick={() => setPasswordMenu(false)}></i>
-          </div>
-
-          <div className={styles.bottom}>
-            <div className={styles.importMenu}>
-                <p className={styles.header}>Password</p>
-                <div className={styles.btnInput}>
-                  <input type={passwordVisibility ? 'text' : 'password'} style={{letterSpacing: passwordVisibility ? '0' : '3px'}} value={walletPassword} onChange={e => setWalletPassword(e.target.value)}  />
-                  <i className={passwordVisibility ? 'far fa-eye' : 'far fa-eye-slash'} onClick={() => setPasswordVisibility(!passwordVisibility)}></i>
-                </div>
-
-                <button onClick={unlockWallet}>Unlock Wallet</button>
-              </div>
-            </div>
-        </div>
-      }
+        <PasswordMenu 
+          styles={styles}
+          setPasswordMenu={setPasswordMenu} 
+          passwordVisibility={passwordVisibility} 
+          setPasswordVisibility={setPasswordVisibility} 
+          walletPassword={walletPassword} 
+          setWalletPassword={setWalletPassword} 
+          unlockWallet={unlockWallet} />}
 
       {connectMenu &&
-        <div className={styles.connectMenu}>
-          <div className={styles.top}>
-            <p className={styles.header}>Connect Wallet</p>
-            <i className='far fa-times' onClick={() => setConnectMenu(false)}></i>
-          </div>
-
-          <div className={styles.bottom}>
-            <div className={styles.selectionMenu}>
-              <div className={importMode && styles.selected} onClick={() => setImportMode(true)}>
-                <p>Custom</p>
-              </div>
-
-              <div className={!importMode && styles.selected} onClick={() => setImportMode(false)}>
-                <p>Wallet Connect</p>
-              </div>
-            </div>
-
-            {importMode ? // Custom
-              <div className={styles.importMenu}>
-                <p className={styles.header}>Wallet Name</p>
-                <input type='text' value={walletName} onChange={e => setWalletName(e.target.value)} />
-
-                <p className={styles.header}>Password</p>
-                <div className={styles.btnInput}>
-                  <input type={passwordVisibility ? 'text' : 'password'} style={{letterSpacing: passwordVisibility ? '0' : '3px'}} value={walletPassword} onChange={e => setWalletPassword(e.target.value)}  />
-                  <i className={passwordVisibility ? 'far fa-eye' : 'far fa-eye-slash'} onClick={() => setPasswordVisibility(!passwordVisibility)}></i>
-                </div>
-                <p className={styles.notice}>Please remember your password.</p>
-
-                <p className={styles.header}>Private Key / Mnemonic Phrase</p>
-                <textarea placeholder='0x... || Mnemonic Phrase' value={privateKey} onChange={e => setPrivateKey(e.target.value)} />
-
-                <button onClick={importWallet}>Import</button>
-              </div>
-              : // Wallet Connect
-              <div className={styles.importMenu}>
-                <p className={styles.header}>Coming Soon</p>
-              </div>
-            }
-          </div>
-        </div>
-      }
+        <ConnectMenu 
+          styles={styles}
+          setConnectMenu={setConnectMenu} 
+          importMode={importMode}
+          setImportMode={setImportMode} 
+          walletName={walletName} 
+          setWalletName={setWalletName} 
+          passwordVisibility={passwordVisibility} 
+          setPasswordVisibility={setPasswordVisibility} 
+          importWallet={importWallet} 
+          privateKey={privateKey} 
+          setPrivateKey={setPrivateKey} 
+          walletPassword={walletPassword} 
+          setWalletPassword={setWalletPassword} />}
     </div>
   )
 }

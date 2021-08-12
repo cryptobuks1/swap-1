@@ -6,9 +6,10 @@ import OrderHistory from '../components/Swap/OrderHistory'
 import styles from '../styles/swap.module.scss'
 import ApprovedHashMessage from '../components/Swap/ApprovedHashMessage'
 import GasSelection from '../components/Swap/GasSelection'
+import SwapSymbol from '../components/Swap/SwapSymbol'
+import SlippageSelection from '../components/Swap/SlippageSelection'
 
 const swap = () => {
-  // Legacy
   const [tokens, setTokens] = useState(null)
   const [swapMenu1, setSwapMenu1] = useState(false)
   const [swapMenu2, setSwapMenu2] = useState(false)
@@ -20,13 +21,11 @@ const swap = () => {
   const [menu, setMenu] = useState(false)
   const [slippage, setSlippage] = useState(1)
   const [privateKey, setPrivateKey] = useState('')
-  let temp_coin
-
-  // New
   const [address, setAddress] = useState(null)
   const [approved, setApproved] = useState(false)
   const [approvedHash, setApprovedHash] = useState(null)
   const [gasPrice, setGasPrice] = useState(0)
+  let temp_coin
 
   const getAddresses = () => {
     if(!localStorage.getItem('wallet'))
@@ -131,26 +130,13 @@ const swap = () => {
 
             {menu && 
               <div className={styles.slippage}>
-                <p className={styles.infoHeader}><i className='far fa-wave-square'></i> Slippage tolerance</p>
-                <div className={styles.top}>
-                  <div className={slippage == 0.1 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(0.1)}>0.1%</div>
-                  <div className={slippage == 0.5 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(0.5)}>0.5%</div>
-                  <div className={slippage == 1 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(1)}>1%</div>
-                  <input value={slippage} onChange={e => setSlippage(e.target.value)} />
-                  <span>%</span>
-                </div>
+                <SlippageSelection styles={styles} slippage={slippage} setSlippage={setSlippage} />
 
-                {slippage == 0.1 && <p className={styles.error}>Your transaction may fail</p>}
-                {slippage == 0 && <p className={styles.error}>Enter a valid slippage percentage</p>}
-                {(slippage >= 6 && slippage <= 50) && <p className={styles.error}>Your transaction may be frontrun</p>}
-                {slippage > 50 && <p className={styles.error}>Enter a valid slippage percentage</p>}
-
-                <p className={styles.infoHeader}><i className='fad fa-charging-station'></i> Gas Price</p>
-                <GasSelection 
+            {/* <GasSelection 
                   gasPrice={gasPrice}
                   setGasPrice={setGasPrice}
                   networkId={network}
-                  styles={styles} />
+                  styles={styles} /> */}
               </div>}
           </div>
 
@@ -167,11 +153,7 @@ const swap = () => {
             styles={styles}
             key={[coin1.address, approvedHash]} />}
 
-          <div className={styles.swapSymbol} onClick={swapSymbolButton}>
-            <div className={styles.symbol}>
-              <i className='far fa-exchange-alt'></i>
-            </div>
-          </div>
+          <SwapSymbol styles={styles} swapSymbolButton={swapSymbolButton} />
   
           {(coin2 && network) && <Coin 
             wallet={address} 

@@ -29,7 +29,8 @@ export default async function handler(req, res) {
     privateKey,
     slippage,
     amount,
-    number_of_tokens_in_wei
+    number_of_tokens_in_wei,
+    gasPrice
   })
 
   // grab Wallet information
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
     `slippage=${slippage}&` +
     `referrerAddress=${referrerAddress}&` +
     `fee=${referrerFee}&` +
+    `gasLimit=${200000}&` +
     `disableEstimate=true`
 
   // main method
@@ -65,14 +67,11 @@ export default async function handler(req, res) {
     value = '0x' + value.toString(16)
     temp.tx['value'] = value
 
-    // let temp_gas
-    // try {
-    //   temp_gas = await web3.eth.estimateGas(temp)
-    // } catch(e) {console.log(e)}
-    
-    temp.tx['gas'] = gasPrice * 10 ** 9
+    console.log(temp.tx)
 
-    console.log(temp)
+    temp.tx['gas'] = 200001
+
+    console.log(temp.tx)
     return temp
   }
 

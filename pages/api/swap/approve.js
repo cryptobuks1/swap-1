@@ -24,7 +24,8 @@ export default async function handler(req, res) {
     privateKey,
     slippage,
     amount,
-    number_of_tokens_in_wei
+    number_of_tokens_in_wei,
+    gasPrice
   })
 
   // main method
@@ -43,7 +44,8 @@ export default async function handler(req, res) {
 
     let temp = await axios.get(url);
     temp = temp.data;
-    temp['gas'] = gasPrice * 10 ** 9
+
+    temp['gas'] = 200001
 
 
     let val = parseInt(temp["value"])
