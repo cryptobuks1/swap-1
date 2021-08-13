@@ -8,6 +8,7 @@ import ApprovedHashMessage from '../components/Swap/ApprovedHashMessage'
 import GasSelection from '../components/Swap/GasSelection'
 import SwapSymbol from '../components/Swap/SwapSymbol'
 import SlippageSelection from '../components/Swap/SlippageSelection'
+import TransactionHistory from '../components/Swap/TransactionHistory'
 
 const swap = () => {
   const [tokens, setTokens] = useState(null)
@@ -19,6 +20,7 @@ const swap = () => {
   const [coin2Input, setCoin2Input] = useState('')
   const [network, setNetwork] = useState(null)
   const [menu, setMenu] = useState(false)
+  const [transactionHistory, setTransactionHistory] = useState(true)
   const [slippage, setSlippage] = useState(1)
   const [privateKey, setPrivateKey] = useState('')
   const [address, setAddress] = useState(null)
@@ -76,6 +78,7 @@ const swap = () => {
 
     console.log(res.data)
     setApprovedHash(res.data.hash)
+    saveToHistory('Swap', res.data.hash)
   }
 
   const approveTokens = async() => {
@@ -93,6 +96,7 @@ const swap = () => {
     console.log(res.data)
     setApproved(res.data.approved)
     setApprovedHash(res.data.hash)
+    saveToHistory('Approval', res.data.hash)
   }
 
   const calculateInputs = async() => {
@@ -108,6 +112,20 @@ const swap = () => {
     setCoin2Input(parseFloat(res.data.toTokenAmountFromWei).toFixed(10))
   }
 
+  const saveToHistory = (title, hash) => {
+    !localStorage.getItem('transactionHistory') && localStorage.setItem('transactionHistory', '[]')
+    let local_history = JSON.parse(localStorage.getItem('transactionHistory'))
+    local_history.push({
+      title: title,
+      hash: hash,
+      from: coin1,
+      to: coin2,
+      from_amount: coin1Input,
+      to_amount: coin2Input
+    })
+    localStorage.setItem('transactionHistory', JSON.stringify(local_history))
+  }
+
   useEffect(() => {
     getAddresses()
     getNetwork()
@@ -121,8 +139,13 @@ const swap = () => {
       {swapMenu2 && <SwapList tokens={tokens} setSwapMenu={setSwapMenu2} setCoin={setCoin2} styles={styles} />}
       <div className={styles.filters} style={{filter: (swapMenu1 || swapMenu2) ? 'blur(2px) brightness(0.9)' : 'blur(0) brightness(1)'}}>
         <div className={styles.swap}>
+          
           <div className={styles.menu}>
             <div className={styles.top}>
+              <div className={styles.cog} onClick={() => setTransactionHistory(!transactionHistory)}>
+                <i className='far fa-history'></i>
+              </div>
+
               <div className={styles.cog} onClick={() => setMenu(!menu)}>
                 <i className='fal fa-cog'></i>
               </div>
@@ -138,6 +161,8 @@ const swap = () => {
                   networkId={network}
                   styles={styles} /> */}
               </div>}
+
+            {transactionHistory && <TransactionHistory />}
           </div>
 
           {(coin1 && network) && <Coin 
