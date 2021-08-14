@@ -2,13 +2,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import SwapList from '../components/Swap/SwapList'
 import Coin from '../components/Swap/Coin'
-import OrderHistory from '../components/Swap/OrderHistory'
 import styles from '../styles/swap.module.scss'
 import ApprovedHashMessage from '../components/Swap/ApprovedHashMessage'
 import GasSelection from '../components/Swap/GasSelection'
 import SwapSymbol from '../components/Swap/SwapSymbol'
 import SlippageSelection from '../components/Swap/SlippageSelection'
-import TransactionHistory from '../components/Swap/TransactionHistory'
+import TransactionHistory from '../components/Swap/TransactionHistory/TransactionHistory'
 
 const swap = () => {
   const [tokens, setTokens] = useState(null)
@@ -20,7 +19,7 @@ const swap = () => {
   const [coin2Input, setCoin2Input] = useState('')
   const [network, setNetwork] = useState(null)
   const [menu, setMenu] = useState(false)
-  const [transactionHistory, setTransactionHistory] = useState(true)
+  const [transactionHistory, setTransactionHistory] = useState(false)
   const [slippage, setSlippage] = useState(1)
   const [privateKey, setPrivateKey] = useState('')
   const [address, setAddress] = useState(null)
@@ -215,9 +214,12 @@ const swap = () => {
           </div>
         </div>
 
-        {approvedHash !== null && <ApprovedHashMessage approvedHash={approvedHash} setApprovedHash={setApprovedHash} styles={styles} />}
-        
-        <OrderHistory />
+        {approvedHash !== null && 
+          <ApprovedHashMessage 
+            approvedHash={approvedHash} 
+            setApprovedHash={setApprovedHash}
+            networkId={network} 
+            styles={styles} />}
       </div>
       </>}
       <p className={styles.noticeMSG}>Please do not use this app - yet - as it's still unstable.</p>

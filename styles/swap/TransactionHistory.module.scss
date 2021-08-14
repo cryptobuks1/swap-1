@@ -1,2 +1,155 @@
 div.transactionHistory {
+  color: #ffffff;
+  
+  div.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+
+    p.infoHeader,
+    p.clear {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 5px;
+      
+      i {
+        margin-right: 4px;
+      }
+    }
+
+    p.clear {
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+      }
+
+      i {
+        color: #d32c2c;
+      }
+    }
+  }
+
+  div.historyScroll {
+    max-height: 140px;
+    overflow-y: scroll;
+  
+    // &::-webkit-scrollbar {
+    //   width: 8px;
+    // }
+
+    // /* Track */
+    // &::-webkit-scrollbar-track {
+    //   background: transparent;
+    // }
+
+    // /* Handle */
+    // &::-webkit-scrollbar-thumb {
+    //   background: #000000;
+    //   border-radius: 50px;
+    // }
+
+    // &::-webkit-scrollbar-thumb:hover {
+    //   background: #111111;
+    // }
+  }
+
+  div.tab {
+    margin-block: 8px;
+    background-color: #212429;
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
+    border-radius: 10px;
+    border: 1px solid #212429;
+
+    &:hover {
+      border: 1px solid #2c2f36;
+    }
+
+    div.top {
+      display: flex;
+      align-items: center;
+      background-color: #212429;
+      padding: 12px 18px;
+      border: 1px solid #212429;
+      border-bottom: 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+      }
+
+      p.title {
+        font-size: 15px;
+        font-weight: 500;
+
+        i {
+          font-size: 13px;
+        }
+      }
+
+      div.path {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        img {
+          width: 18px;
+        }
+
+        i {
+          font-size: 12px;
+          margin-inline: 10px;
+        }
+      }
+    }
+
+    div.expandable {
+      margin-top: 10px;
+      padding-inline: 10px;
+
+      div.path {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 18px;
+          margin-right: 5px;
+        }
+
+        i {
+          margin-inline: 10px;
+          font-size: 12px;
+
+          &.pathIcon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      div.hash {
+        text-align: right;
+        margin-bottom: 10px;
+
+        a {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 500;
+          color: #268ffc;
+        }
+      }
+    }
+  }
 }
