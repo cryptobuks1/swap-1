@@ -20,8 +20,8 @@ export default async function handler(req, res) {
   const amount =  req.body.amountToSell
   const number_of_tokens_in_wei = new BigNumber(parseInt(await web3.utils.toWei(parseFloat(amount).toFixed(15).toString(), 'ether')))
 
-  const referrerAddress = '0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0'
-  const referrerFee = 1
+  const referrerAddress = '0xd3120FC80E8EE414bbc4aF59Caf477b4b9bF296B'
+  const referrerFee = 0.1
 
   console.log({
     from_token_address,

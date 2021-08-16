@@ -91,6 +91,10 @@ div.header {
     cursor: pointer;
     user-select: none;
 
+    div.logProfile {
+      box-shadow: 0 0 4px #268ffc;
+    }
+
     div.profile {
       display: flex;
       align-items: center;
@@ -98,7 +102,7 @@ div.header {
       background-color: #202328;
       padding: 2px 10px;
       border-radius: 50px;
-    
+
       img {
         width: 20px;
         height: 20px;
@@ -429,6 +433,10 @@ div.header {
       height: 28px;
       margin-right: 5px;
   
+      div.logProfile {
+        box-shadow: 0 0 4px #212429;
+      }
+
       div.profile {
         background-color: #7abaff;
         padding: 2px 8px;

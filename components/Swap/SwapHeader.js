@@ -123,7 +123,7 @@ const SwapHeader = () => {
               <p className={styles.addressText}>{address.slice(0, 6)}...{address.slice(38, 42)}</p>
             </div>
           :
-            <div className={styles.profile} onClick={() => setPasswordMenu(true)}>
+            <div className={`${styles.profile} ${styles.logProfile}`} onClick={() => setPasswordMenu(true)}>
               <p className={styles.logBtn}>Log In</p>
             </div>
           }

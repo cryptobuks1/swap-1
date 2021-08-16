@@ -222,7 +222,7 @@ const swap = () => {
             styles={styles} />}
       </div>
       </>}
-      <p className={styles.noticeMSG}>Please do not use this app - yet - as it's still unstable.</p>
+      <p className={styles.noticeMSG}>For any problems contact us on Twitter <a href='https://twitter.com/wastebridge' target='_blank'>@wastebridge</a>.</p>
     </div>
   )
 }
