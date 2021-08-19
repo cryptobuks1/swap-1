@@ -45,8 +45,8 @@ export default async function handler(req, res) {
     let temp = await axios.get(url);
     temp = temp.data;
 
-    temp['gas'] = 200001
-
+    temp['gas'] = web3.utils.toHex(3000000)
+    temp['gasPrice'] = web3.utils.toHex(await web3.eth.getGasPrice())
 
     let val = parseInt(temp["value"])
     val = '0x' + val.toString(16)

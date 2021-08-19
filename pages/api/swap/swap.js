@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     `slippage=${slippage}&` +
     `referrerAddress=${referrerAddress}&` +
     `fee=${referrerFee}&` +
-    `gasLimit=${200000}&` +
+    `gasLimit=${3001000}&` +
     `disableEstimate=true`
 
   // main method
@@ -68,9 +68,9 @@ export default async function handler(req, res) {
     temp.tx['value'] = value
 
 
-    console.log(temp.tx)
     temp.tx['gas'] = web3.utils.toHex(3000000)
     temp.tx['gasPrice'] = web3.utils.toHex(await web3.eth.getGasPrice())
+    console.log(temp.tx)
     return temp
   }
 

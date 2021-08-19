@@ -118,7 +118,7 @@ const SwapHeader = () => {
       :
         <div className={styles.connectedProfile}>
           {loggedIn ?
-            <div className={styles.profile} onClick={() => setProfileSettings(!profileSettings)}>
+            <div className={styles.profile} onClick={() => {setProfileSettings(!profileSettings); setCogMenu(false)}}>
               <IdenticonIcon image={address} />
               <p className={styles.addressText}>{address.slice(0, 6)}...{address.slice(38, 42)}</p>
             </div>
@@ -128,7 +128,7 @@ const SwapHeader = () => {
             </div>
           }
 
-          <div className={styles.cog} onClick={() => setCogMenu(!cogMenu)}>
+          <div className={styles.cog} onClick={() => {setCogMenu(!cogMenu); setProfileSettings(false)}}>
             <i className='fal fa-user-cog'></i>
           </div>
 
