@@ -1,0 +1,77 @@
+div.gasSelection {
+  color: #ffffff;
+
+  div.option {
+
+    &:not(:last-of-type) {
+      background: #212429;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      color: #ffffff;
+      border: 1px solid rgb(44, 47, 54);
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &.active {
+        background-color: #268ffc;
+        border: 1px solid #68b2ff;
+
+        p {
+          color: #ffffff;
+        }
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+      }
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      color: #268ffc;
+
+      span {
+        font-size: 14px;
+        margin-right: 2px;
+        color: #ffffff;
+      }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    input {
+      border: 0;
+      color: #ffffff;
+      background-color: #212429;
+      border: 1px solid rgb(44, 47, 54);
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 13px;
+      width: 100px;
+      
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

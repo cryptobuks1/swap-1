@@ -1,18 +1,15 @@
 div.transactionHistory {
-  color: #212121;
-  background-color: #f6f7f8;
-  // border: 1px solid #e5e7e8;
-  border-radius: 20px;
-  padding: 5px 10px;
+  color: #ffffff;
   
   div.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 5px;
 
     p.infoHeader,
     p.clear {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       padding: 10px 5px;
       
@@ -22,10 +19,6 @@ div.transactionHistory {
     }
 
     p.clear {
-      padding: 7px 10px;
-      border-radius: 8px;
-      background-color: #ffffff;
-      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
       user-select: none;
       cursor: pointer;
 
@@ -46,22 +39,44 @@ div.transactionHistory {
   div.historyScroll {
     max-height: 140px;
     overflow-y: scroll;
-    border-radius: 10px;
+  
+    // &::-webkit-scrollbar {
+    //   width: 8px;
+    // }
+
+    // /* Track */
+    // &::-webkit-scrollbar-track {
+    //   background: transparent;
+    // }
+
+    // /* Handle */
+    // &::-webkit-scrollbar-thumb {
+    //   background: #000000;
+    //   border-radius: 50px;
+    // }
+
+    // &::-webkit-scrollbar-thumb:hover {
+    //   background: #111111;
+    // }
   }
 
   div.tab {
     margin-block: 8px;
-    background-color: #ffffff;
+    background-color: #212429;
     box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
     border-radius: 10px;
-    // border: 1px solid #212429;
+    border: 1px solid #212429;
+
+    &:hover {
+      border: 1px solid #2c2f36;
+    }
 
     div.top {
       display: flex;
       align-items: center;
       background-color: #212429;
       padding: 12px 18px;
-      // border: 1px solid #212429;
+      border: 1px solid #212429;
       border-bottom: 0;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -82,7 +97,6 @@ div.transactionHistory {
 
         i {
           font-size: 13px;
-          margin-right: 4px;
         }
       }
 
@@ -127,7 +141,7 @@ div.transactionHistory {
 
       div.hash {
         text-align: right;
-        padding-bottom: 10px;
+        margin-bottom: 10px;
 
         a {
           display: inline-block;

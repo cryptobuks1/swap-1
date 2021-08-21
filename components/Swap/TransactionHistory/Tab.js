@@ -6,9 +6,9 @@ const Tab = ({tab, styles}) => {
   return (
     <div className={styles.tab}>
       <div className={styles.top} 
-        style={expandable ? {backgroundColor: '#268ffc', color: '#ffffff'} : {backgroundColor: '#ffffff', borderRadius: 'inherit'}} 
+        style={expandable ? {backgroundColor: '#268ffc', borderColor: '#268ffc'} : {backgroundColor: '#212429', borderColor: '#212429', borderRadius: 'inherit'}} 
         onClick={() => setExpandable(!expandable)}>
-        <p className={styles.title}><i class={tab.title === 'Swap' ? 'far fa-map-marked-alt' : 'far fa-shield-check'}></i> {tab.title}</p>
+        <p className={styles.title}><i class={tab.title === 'Swap' ? 'fad fa-map-marked-alt' : 'fad fa-shield-check'}></i> {tab.title}</p>
       
         <div className={styles.path}>
           <img src={tab.from.logoURI} alt={tab.from.logoURI} />

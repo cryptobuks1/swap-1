@@ -1,0 +1,82 @@
+div.slippage {
+      
+  p.infoHeader {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 5px 10px 0;
+    color: #ffffff;
+
+    i {
+      margin-right: 4px;
+    }
+
+    &:not(:first-of-type) {
+      margin-top: 14px;
+    }
+  }
+
+  p.error {
+    color: #268ffc;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 0 0 10px;
+  }
+
+  div.top {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 51% 4%;
+    
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      margin-left: 4px;
+      color: #ffffff;
+    }
+
+    div.slipBtn {
+      background: #212429;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      color: #ffffff;
+      border-radius: 10px;
+      padding-block: 10px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &.active {
+        background-color: #268ffc;
+        color: #ffffff;
+        border: 1px solid #68b2ff;
+      }
+    }
+    
+    input {
+      border: 0;
+      color: #ffffff;
+      background-color: #212429;
+      border: 1px solid rgb(44, 47, 54);
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 13px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  div.top > * {
+    margin-inline: 2px;
+  }
+
+  div.top > *:not(:last-child) {
+    border: 1px solid rgb(44, 47, 54);
+  }
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import styles from './TransactionHistory.module.scss'
+import styles from '../../../styles/swap/TransactionHistory.module.scss'
 import Tab from './Tab'
 
 const TransactionHistory = () => {
@@ -25,6 +25,7 @@ const TransactionHistory = () => {
         <p className={styles.infoHeader}><i className='fad fa-book'></i> Transaction History</p>
         <p className={styles.clear} onClick={clearHistory}><i className='far fa-trash-alt'></i> Clear History</p>
       </div>
+      {console.log(history)}
 
       <div className={styles.historyScroll} key={history}>
         {history && 

@@ -1,9 +1,9 @@
 div.swap {
   position: relative;
-  width: 400px;
+  width: 450px;
   margin: 0 auto;
   margin-top: 20px;
-  background: #ffffff;
+  background: #191b1f;
   padding: 10px;
   box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
     rgb(25 19 38 / 5%) 0px 1px 1px;
@@ -13,8 +13,8 @@ div.swap {
   // Coin Cards
   div.card {
     border-radius: 20px;
-    background-color: #f6f7f8;
-    // border: 1px solid #e5e7e8;
+    background-color: #212429;
+    border: 1px solid rgb(44, 47, 54);
     box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
       rgb(25 19 38 / 5%) 0px 1px 1px;
     padding: 15px;
@@ -29,8 +29,8 @@ div.swap {
         display: flex;
         align-items: center;
         padding: 8px 14px;
-        background-color: #ffffff;
-        color: #181818;
+        background-color: #191b1f;
+        color: #ffffff;
         border-radius: 50px;
         box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
           rgb(25 19 38 / 5%) 0px 1px 1px;
@@ -59,7 +59,7 @@ div.swap {
 
       input {
         background: transparent;
-        color: #000000;
+        color: #ffffff;
         border: 0;
         text-align: right;
         font-size: 18px;
@@ -75,7 +75,7 @@ div.swap {
         font-size: 14px;
 
         &.inputSpinner {
-          color: #212121;
+          color: #ffffff;
           -webkit-animation: spin 1.5s linear infinite;
           -moz-animation: spin 1.5s linear infinite;
           animation: spin 1.5s linear infinite;
@@ -108,21 +108,18 @@ div.swap {
 
   // Top Swap Menu
   div.menu {
-    padding: 5px 5px;
+    padding: 5px 10px;
     user-select: none;
 
     div.top {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-bottom: 10px;
-      margin-right: 5px;
 
       div.cog {
-        color: #212121;
+        color: #ffffff;
         margin-left: 15px;
         cursor: pointer;
-        font-size: 15px;
 
         &:hover {
           opacity: 0.8;
@@ -160,30 +157,21 @@ div.swap {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #268dfc3a;
+      background-color: #268ffc;
       text-align: center;
-      color: #1a7ae0;
+      color: #ffffff;
       border-radius: 20px;
-      // border: 1.4px solid #268ffc;
       box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
         rgb(25 19 38 / 5%) 0px 1px 1px;
-      padding-block: 14px;
+      padding: 15px;
       margin: 5px;
       margin-top: 20px;
-      font-size: 15px;
-      font-weight: 500;
       cursor: pointer;
       user-select: none;
       
       i {
         font-size: 12px;
         margin-right: 6px;
-      
-        &.inputSpinner {
-          -webkit-animation: spin 1.5s linear infinite;
-          -moz-animation: spin 1.5s linear infinite;
-          animation: spin 1.5s linear infinite;
-        }
       }
 
       &:hover {
@@ -191,9 +179,7 @@ div.swap {
       }
 
       &.disabled {
-        background: #888d9b3a;
-        // border: 1.4px solid #939393;
-        color: #727272;
+        background: #888d9b;
       }
     }
   }
@@ -208,10 +194,10 @@ div.swap {
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 3px solid #e5e7e8;
+      border: 3px solid #191b1f;
       border-radius: 10px;
-      background-color: #f6f7f8;
-      color: #212121;
+      background-color: #212429;
+      color: #ffffff;
       width: 30px;
       height: 30px;
       font-size: 12px;
@@ -345,8 +331,8 @@ div.approvedHashMessage {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f1f1f1;
-  width: 400px;
+  background: #29323e;
+  width: 450px;
   margin: 0 auto;
   margin-top: -20px;
   padding: 15px;
@@ -360,7 +346,7 @@ div.approvedHashMessage {
     font-family: 'Cera Pro';
     font-weight: 400;
     word-break: break-all;
-    color: #212121;
+    color: #ffffff;
     line-height: 20px;
     font-size: 13px;
     padding-inline: 20px;
@@ -372,7 +358,7 @@ div.approvedHashMessage {
   }
 
   i.close {
-    color: #212121;
+    color: #ffffff;
     cursor: pointer;
     padding: 3px 6px;
 
@@ -386,7 +372,7 @@ div.approvedHashMessage {
   }
 
   i.bulb {
-    color: #6098d0;
+    color: #81b0e0;
   }
 }
 
@@ -395,6 +381,34 @@ div.approvedHashMessage {
   div.swap {
     width: 95%;
     margin-top: 50px;
+
+    div.gasSelection {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      
+      div.option {
+        
+        &:not(:last-of-type) {
+          padding: 8px 12px;
+        }
+
+      p {
+        font-size: 10px;
+
+        span {
+          font-size: 12px;
+        }
+      }
+  
+        input {
+          padding: 8px;
+          font-size: 13px;
+          width: 80px;
+        }
+      }
+    }
   }
 
   div.approvedHashMessage {

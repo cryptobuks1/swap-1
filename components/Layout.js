@@ -42,7 +42,7 @@ const Layout = ({children}) => {
         {children}  
       </main>   
 
-      {/* <div className='radial-background'></div> */}
+      <div className='radial-background'></div>
     </div>
   )
 }

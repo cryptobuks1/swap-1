@@ -1,0 +1,55 @@
+div.moreSettings {
+
+  p.infoHeader {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 5px 10px 0;
+    color: #ffffff;
+    margin-top: 10px;
+  }
+
+  p.subInfoHeader {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 10px 5px;
+    padding-top: 18px;
+    color: #268ffc;
+    line-height: 6px;
+  }
+
+  div.section {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    
+    p.type {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      margin-right: 5px;
+
+      i {
+        font-size: 13px;
+        margin-right: 5px;
+      }
+    }
+    
+    input {
+      border: 0;
+      color: #ffffff;
+      background-color: #212429;
+      border: 1px solid rgb(44, 47, 54);
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+      rgb(25 19 38 / 5%) 0px 1px 1px;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 12px;
+      width: 50px;
+      
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

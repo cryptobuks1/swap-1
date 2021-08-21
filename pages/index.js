@@ -4,9 +4,11 @@ import SwapList from '../components/Swap/SwapList'
 import Coin from '../components/Swap/Coin'
 import styles from '../styles/swap.module.scss'
 import ApprovedHashMessage from '../components/Swap/ApprovedHashMessage'
+import GasSelection from '../components/Swap/GasSelection'
 import SwapSymbol from '../components/Swap/SwapSymbol'
+import SlippageSelection from '../components/Swap/SlippageSelection'
 import TransactionHistory from '../components/Swap/TransactionHistory/TransactionHistory'
-import SettingsMenu from '../components/Swap/SettingsMenu/SettingsMenu'
+import MoreSettings from '../components/Swap/MoreSettings'
 
 const swap = () => {
   const [tokens, setTokens] = useState(null)
@@ -24,8 +26,6 @@ const swap = () => {
   const [address, setAddress] = useState(null)
   const [approved, setApproved] = useState(false)
   const [approvedHash, setApprovedHash] = useState(null)
-  const [approvedLoader, setApprovedLoader] = useState(false)
-  const [approvedSwapLoader, setApprovedSwapLoader] = useState(false)
   const [gasPrice, setGasPrice] = useState(0)
   let temp_coin
 
@@ -65,8 +65,6 @@ const swap = () => {
   }
 
   const swapTokens = async() => {
-    setApprovedSwapLoader(true)
-
     let res = await axios.post('/api/swap/swap', {
       fromToken: coin1.address,
       toToken: coin2.address,
@@ -80,13 +78,10 @@ const swap = () => {
 
     console.log(res.data)
     setApprovedHash(res.data.hash)
-    setApprovedSwapLoader(false)
     saveToHistory('Swap', res.data.hash)
   }
 
   const approveTokens = async() => {
-    setApprovedLoader(true)
-
     let res = await axios.post('/api/swap/approve', {
       fromToken: coin1.address,
       toToken: coin2.address,
@@ -101,7 +96,6 @@ const swap = () => {
     console.log(res.data)
     setApproved(res.data.approved)
     setApprovedHash(res.data.hash)
-    setApprovedLoader(false)
     saveToHistory('Approval', res.data.hash)
   }
 
@@ -153,11 +147,22 @@ const swap = () => {
               </div>
 
               <div className={styles.cog} onClick={() => setMenu(!menu)}>
-                <i className='far fa-cog'></i>
+                <i className='fal fa-cog'></i>
               </div>
             </div>
 
-            {menu && <SettingsMenu slippage={slippage} setSlippage={setSlippage} />}
+            {menu && 
+              <div className={styles.slippage}>
+                <SlippageSelection styles={styles} slippage={slippage} setSlippage={setSlippage} />
+
+                {/* <GasSelection 
+                  gasPrice={gasPrice}
+                  setGasPrice={setGasPrice}
+                  networkId={network} /> */}
+
+                <MoreSettings />
+              </div>}
+
             {transactionHistory && <TransactionHistory />}
           </div>
 
@@ -196,7 +201,7 @@ const swap = () => {
 
           <div className={coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' ? `${styles.transactionButtons} ${styles.transactionButtonsGrid}` : styles.transactionButtons}>
             {coin1 && coin1.address !== '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' && <div className={styles.button} onClick={approveTokens}>
-              <i className={approvedLoader ? `fa fa-spinner-third ${styles.inputSpinner}` : 'fad fa-wand-magic'}></i>
+              <i className='fad fa-wand-magic'></i>
               <p>Approve</p>
             </div>}
             <div className={
@@ -205,7 +210,7 @@ const swap = () => {
               coin1Input === '' ? `${styles.button} ${styles.disabled}` : styles.button}  
               /* Honestly I don't even remember */
               onClick={coin1Input !== '' ? swapTokens : console.log('can not swap - empty input')}>
-              <i className={approvedSwapLoader ? `fa fa-spinner-third ${styles.inputSpinner}` : 'fad fa-route'}></i>
+              <i className='fad fa-route'></i>
               <p>{coin1Input === '' ? 'Enter Amount' : 'Swap'}</p>
             </div>
           </div>
