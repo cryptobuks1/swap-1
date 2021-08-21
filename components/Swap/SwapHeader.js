@@ -102,12 +102,6 @@ const SwapHeader = () => {
     <div className={styles.header}>
       {(connectMenu || passwordMenu || blockchainMenu )&& <div className={styles.filter}></div>}
 
-      <div className={styles.gasStation}>
-        <a href='https://station.wastebridge.org'>
-          <i className='far fa-gas-pump'></i>
-        </a>
-      </div>
-
       <BlockchainMenuButton styles={styles} setBlockchainMenu={setBlockchainMenu} network={network} />
 
       {address == null ?
@@ -129,7 +123,7 @@ const SwapHeader = () => {
           }
 
           <div className={styles.cog} onClick={() => {setCogMenu(!cogMenu); setProfileSettings(false)}}>
-            <i className='fal fa-user-cog'></i>
+            <i className='fas fa-user-astronaut'></i>
           </div>
 
           {cogMenu && 
@@ -147,6 +141,12 @@ const SwapHeader = () => {
           }
        </div>
       }
+
+      <div className={styles.gasStation}>
+        <a href='https://station.wastebridge.org'>
+          <i className='fas fa-gas-pump'></i>
+        </a>
+      </div>
 
       {blockchainMenu && 
         <BlockchainMenu 

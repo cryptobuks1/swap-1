@@ -18,6 +18,12 @@
 
 @font-face {
   font-family: "Cera Pro";
+  font-weight: 400;
+  src: url(/fonts/CeraProRegular.otf);
+}
+
+@font-face {
+  font-family: "Cera Pro";
   font-weight: 500;
   src: url(/fonts/CeraProMedium.otf);
 }
@@ -37,7 +43,7 @@
 }
 
 html {
-  background-color: rgb(33, 36, 41) !important;
+  background-color: #e6e6e6;
 }
 
 div.radial-background {
@@ -57,8 +63,6 @@ div.radial-background {
   transform: translate(-50vw, -100vh);
   z-index: -1;
 }
-
-/* Header */
 
 @media screen and (max-width: 700px) {
   div.header div.profile {

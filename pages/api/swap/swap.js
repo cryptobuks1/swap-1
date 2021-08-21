@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const eth_testnet_provider = 'http://127.0.0.1:8545'
   const bsc_provider = 'https://bsc-dataseed1.binance.org:443'
   const networkId = req.body.networkId
-  let web3 = new Web3(networkId === 1 ? eth_provider : bsc_provider)
+  let web3 = new Web3(networkId === 1 ? eth_testnet_provider : bsc_provider)
 
   const from_token_address = req.body.fromToken
   const to_token_address = req.body.toToken

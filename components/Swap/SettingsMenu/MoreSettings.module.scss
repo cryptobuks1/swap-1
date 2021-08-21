@@ -1,0 +1,67 @@
+div.moreSettings {
+
+  p.infoHeader {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 5px 10px 0;
+    color: #212121;
+    margin-top: 10px;
+  }
+
+  p.subInfoHeader {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 10px 5px;
+    padding-top: 18px;
+    color: #268ffc;
+    line-height: 6px;
+  }
+
+  div.section {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    background-color: #ffffff;
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+      rgb(25 19 38 / 5%) 0px 1px 1px;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px 15px;
+
+    p.type {
+      color: #212121;
+      font-size: 14px;
+      font-weight: 500;
+
+      i {
+        font-size: 13px;
+        margin-right: 5px;
+      }
+    }
+    
+    input {
+      border: 0;
+      color: #212121;
+      // background-color: #fbfbfb;
+      background-color: transparent;
+      padding-left: 10px;
+      font-weight: 600;
+      font-size: 12px;
+      width: 30px;
+      
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+}

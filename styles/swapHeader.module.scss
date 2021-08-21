@@ -15,13 +15,17 @@ div.header {
   }
 
   div.gasStation {
-    background-color: #191b1f;
-    color: #ffffff;
-    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50px;
+    color: #212121;
+    width: 50px;
+    height: 30px;
     font-size: 12px;
     box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
       rgb(25 19 38 / 5%) 0px 1px 1px;
-    border-radius: 6px;
     cursor: pointer;
     user-select: none;
 
@@ -43,14 +47,14 @@ div.header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background: #191b1f;
-    color: #ffffff;
+    background: #ffffff;
+    color: #212121;
     padding: 5px 6px;
     padding-right: 16px;
-    border-radius: 6px;
+    border-radius: 50px;
     font-weight: 500;
     font-size: 12px;
-    margin-inline: 10px;
+    margin-right: 10px;
     box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
       rgb(25 19 38 / 5%) 0px 1px 1px;
     cursor: pointer;
@@ -80,40 +84,33 @@ div.header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background: #191b1f;
-    color: #ffffff;
-    padding: 3px;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 12px;
-    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
-      rgb(25 19 38 / 5%) 0px 1px 1px;
-    cursor: pointer;
-    user-select: none;
-
-    div.logProfile {
-      box-shadow: 0 0 4px #268ffc;
-    }
+    color: #212121;
 
     div.profile {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #202328;
-      padding: 2px 10px;
+      padding: 5px 6px;
+      padding-right: 12px;
+      background: #ffffff;
+      font-weight: 500;
+      font-size: 12px;
       border-radius: 50px;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      cursor: pointer;
+      user-select: none;
 
       img {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
-        border: 1px solid #268ffc;
-        padding: 2px;
         margin-right: 6px;
       }
 
       p.logBtn {
-        padding: 4px 0;
+        padding-block: 4px;
+        padding-inline: 4px 0px;
       }
 
       &:hover {
@@ -126,7 +123,20 @@ div.header {
     }
 
     div.cog {
-      padding-inline: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      border-radius: 50px;
+      color: #212121;
+      width: 50px;
+      height: 30px;
+      font-size: 12px;
+      margin-inline: 10px;
+      box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+        rgb(25 19 38 / 5%) 0px 1px 1px;
+      cursor: pointer;
+      user-select: none;
 
       &:hover {
         opacity: 0.8;
@@ -158,6 +168,11 @@ div.header {
         text-align: right;
         width: 140px;
         padding-block: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #ffffff;
+        cursor: pointer;
+        user-select: none;
 
         i {
           margin-left: 5px;
@@ -380,12 +395,13 @@ div.header {
 
     div.gasStation {
       background: #57a8ff;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 10px;
-      padding: 8px 9px;
+      color: #ffffff;
       font-size: 10px;
       box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
+      padding: 2px 8px;
+      border-radius: 50px;
+      width: 30px;
+      height: 28px;
   
       &:hover {
         opacity: 0.8;
@@ -398,6 +414,7 @@ div.header {
   
     div.menu {
       background: #57a8ff;
+      color: #ffffff;
       border-radius: 50px;
       font-weight: 600;
       font-size: 10px;
@@ -417,7 +434,6 @@ div.header {
       i {
         margin-left: 8px;
         font-size: 10px;
-        margin-top: 2px;
       }
 
       &:last-of-type {
@@ -426,29 +442,23 @@ div.header {
     }
   
     div.connectedProfile {
-      background: #57a8ff;
       border-radius: 50px;
       font-weight: 600;
       font-size: 10px;
       height: 28px;
-      margin-right: 5px;
-  
-      div.logProfile {
-        box-shadow: 0 0 4px #212429;
-      }
 
       div.profile {
-        background-color: #7abaff;
-        padding: 2px 8px;
+        background-color: #57a8ff;
+        padding: 4px 10px;
+        font-size: 10px;
         border-radius: 50px;
-        width: fit-content;
 
         img {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           border: 0;
           margin-right: 0;
@@ -460,11 +470,17 @@ div.header {
   
         p.logBtn {
           padding: 4px 0;
+          color: #ffffff;
         }
       }
   
       div.cog {
-        padding-inline: 8px;
+        background: #57a8ff;
+        color: #ffffff;
+        width: 30px;
+        height: 28px;
+        padding: 5px 6px;
+        font-size: 11px;
       }
   
       div.profileSettings {

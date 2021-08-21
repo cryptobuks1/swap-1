@@ -4,7 +4,7 @@ div.header {
   padding: 14px 50px;
 
   div.left {
-    color: #ffffff;
+    color: #212121;
     font-weight: 600;
     width: fit-content;
 
@@ -34,14 +34,14 @@ div.header {
     box-shadow: 0 0 10px #268ffc9e;
 
     div.left {
+      color: #ffffff;
 
       p.logo {
         // font-size: 18px;
       }
 
       p.app {
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 13px;
       }
     }
   }

@@ -2,13 +2,13 @@ import React from 'react'
 
 const SlippageSelection = ({styles, slippage, setSlippage}) => {
   return (
-    <div>
+    <div className={styles.slippage}>
       <p className={styles.infoHeader}><i className='far fa-wave-square'></i> Slippage tolerance</p>
       <div className={styles.top}>
         <div className={slippage == 0.1 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(0.1)}>0.1%</div>
         <div className={slippage == 0.5 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(0.5)}>0.5%</div>
         <div className={slippage == 1 ? `${styles.active} ${styles.slipBtn}` : styles.slipBtn} onClick={() => setSlippage(1)}>1%</div>
-        <input value={slippage} onChange={e => setSlippage(e.target.value)} />
+        <input type='number' value={slippage} onChange={e => setSlippage(e.target.value)} />
         <span>%</span>
       </div>
 
