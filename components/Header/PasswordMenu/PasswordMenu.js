@@ -1,6 +1,8 @@
-const PasswordMenu = ({styles, setPasswordMenu, passwordVisibility, setPasswordVisibility, walletPassword, setWalletPassword, unlockWallet}) => {
+import styles from './PasswordMenu.module.scss'
+
+const PasswordMenu = ({setPasswordMenu, passwordVisibility, setPasswordVisibility, walletPassword, setWalletPassword, unlockWallet}) => {
   return (
-    <div className={styles.connectMenu}>
+    <div className={styles.passwordMenu}>
       <div className={styles.top}>
         <p className={styles.header}>Type Password</p>
         <i className='far fa-times' onClick={() => setPasswordMenu(false)}></i>

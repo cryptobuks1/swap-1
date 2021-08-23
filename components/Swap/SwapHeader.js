@@ -3,9 +3,9 @@ import IdenticonIcon from '../IdenticonIcon'
 import styles from '../../styles/swapHeader.module.scss'
 import axios from 'axios'
 import BlockchainMenuButton from '../Header/BlockchainMenuButton'
-import BlockchainMenu from '../Header/BlockchainMenu'
-import PasswordMenu from '../Header/PasswordMenu'
-import ConnectMenu from '../Header/ConnectMenu'
+import BlockchainMenu from '../Header/BlockchainMenu/BlockchainMenu'
+import PasswordMenu from '../Header/PasswordMenu/PasswordMenu'
+import ConnectMenu from '../Header/ConnectMenu/ConnectMenu'
 
 const SwapHeader = () => {
   const [walletMenu, setWalletMenu] = useState(false)
@@ -102,12 +102,6 @@ const SwapHeader = () => {
     <div className={styles.header}>
       {(connectMenu || passwordMenu || blockchainMenu )&& <div className={styles.filter}></div>}
 
-      <div className={styles.gasStation}>
-        <a href='https://station.wastebridge.org'>
-          <i className='far fa-gas-pump'></i>
-        </a>
-      </div>
-
       <BlockchainMenuButton styles={styles} setBlockchainMenu={setBlockchainMenu} network={network} />
 
       {address == null ?
@@ -124,12 +118,12 @@ const SwapHeader = () => {
             </div>
           :
             <div className={`${styles.profile} ${styles.logProfile}`} onClick={() => setPasswordMenu(true)}>
-              <p className={styles.logBtn}>Log In</p>
+              <p className={styles.logBtn}>LogIn</p>
             </div>
           }
 
           <div className={styles.cog} onClick={() => {setCogMenu(!cogMenu); setProfileSettings(false)}}>
-            <i className='fal fa-user-cog'></i>
+            <i className='fas fa-user-astronaut'></i>
           </div>
 
           {cogMenu && 
@@ -147,6 +141,12 @@ const SwapHeader = () => {
           }
        </div>
       }
+
+      <div className={styles.gasStation}>
+        <a href='https://station.wastebridge.org'>
+          <i className='fas fa-gas-pump'></i>
+        </a>
+      </div>
 
       {blockchainMenu && 
         <BlockchainMenu 

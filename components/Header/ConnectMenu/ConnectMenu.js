@@ -1,6 +1,6 @@
-import React from 'react'
+import styles from './ConnectMenu.module.scss'
 
-const ConnectMenu = ({styles, setConnectMenu, importMode, setImportMode, walletName, setWalletName, passwordVisibility, setPasswordVisibility, importWallet, privateKey, setPrivateKey, walletPassword, setWalletPassword}) => {
+const ConnectMenu = ({setConnectMenu, importMode, setImportMode, walletName, setWalletName, passwordVisibility, setPasswordVisibility, importWallet, privateKey, setPrivateKey, walletPassword, setWalletPassword}) => {
   return (
     <div className={styles.connectMenu}>
       <div className={styles.top}>

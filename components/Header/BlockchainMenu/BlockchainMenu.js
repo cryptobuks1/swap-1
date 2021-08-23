@@ -1,6 +1,8 @@
-const BlockchainMenu = ({styles, setBlockchainMenu, setSwapNetwork}) => {
+import styles from './blockchainMenu.module.scss'
+
+const BlockchainMenu = ({setBlockchainMenu, setSwapNetwork}) => {
   return (
-    <div className={styles.connectMenu}> {/* same styles as connectMenu */}
+    <div className={styles.blockchainMenu}> {/* same styles as connectMenu */}
       <div className={styles.top}>
         <p className={styles.header}>Select Blockchain</p>
         <i className='far fa-times' onClick={() => setBlockchainMenu(false)}></i>

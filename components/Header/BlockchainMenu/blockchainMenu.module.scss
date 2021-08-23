@@ -1,0 +1,84 @@
+div.blockchainMenu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  height: fit-content;
+  margin: 0 auto;
+  background-color: #f6f7f8;
+  box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+    rgb(25 19 38 / 5%) 0px 1px 1px;
+  border-radius: 8px;
+  margin-top: 30px;
+  z-index: 10;
+
+  div.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #212121;
+    font-size: 18px;
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px,
+      rgb(25 19 38 / 5%) 0px 1px 1px;
+    
+    p.header {
+      font-family: 'Cera Pro';
+      font-weight: 500;
+      font-size: 17px;
+    }
+
+    i {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
+  div.bottom {
+    margin-top: 6px;
+
+    div.blockchain {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      user-select: none;
+      cursor: pointer;
+
+      img {
+        width: 30px;
+        margin-right: 10px;
+      }
+
+      p {
+        font-family: 'Cera Pro';
+        font-weight: 500;
+        font-size: 15px;
+        color: #212121;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        filter: brightness(0.9);
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid #dddddd;
+      }
+    }
+  }
+}
