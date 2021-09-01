@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import Header from './Header'
-import Notice from './Notice/Notice'
 
 const Layout = ({children}) => {
   const loadWalletOnLocalStorage = () => {
@@ -42,8 +41,6 @@ const Layout = ({children}) => {
       <main>
         {children}  
       </main>   
-
-      <Notice />
     </div>
   )
 }

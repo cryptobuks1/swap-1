@@ -110,8 +110,8 @@ const swap = () => {
 
     const res = await axios.post('/api/swap/get-price', {
       networkId: network,
-      from_token_address: coin1.address,
-      to_token_address: coin2.address,
+      fromToken: coin1.address,
+      toToken: coin2.address,
       amount: coin1Input
     })
 
